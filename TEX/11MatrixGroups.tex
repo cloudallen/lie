@@ -1,5 +1,5 @@
 \section{Lie Algebras as Exponentials of Matrix Lie Groups}
-Lie Theory is a huge field in modern mathematical research with a lot of results, so briefly presenting the motivation and reason to study Lie Algebras, limiting ourselves to a special subset of Lie Groups that are specially useful for applications, this approach is found in Brian C. Hall\cite{brian} and a more geometrical approach to the presentation of Lie Algebras with a focus on general Lie Groups can be found in Kirillov\cite{kirillov} and a more direct and algebraic approach can be found in Victor Kac \cite{kaclec}.\\
+Lie theory is a huge field in modern mathematical research with a lot of results, so briefly presenting the motivation and reason to study Lie Algebras, limiting ourselves to a special subset of Lie Groups that are specially useful for applications, this approach is found in \cite{brian} and a more geometrical approach to the presentation of Lie Algebras with a focus on general Lie Groups can be found in \cite{kirillov} and a more direct and algebraic approach can be found in \cite{kaclec}.\\
 Lie Groups are sets with a manifold and a group structure, we will focus our attention on matrix Lie Groups and we will define them differently to simplify the extension to Lie Algebras.\\
 Given a field $\F=\mathbb{C}$ or $\mathbb{R}$, the general linear group denoted $GL(n;\F)$ is the group of $n\times n$ invertible matrices, a sequence of matrices $A_n$ is gonna converge to $A$ in that space if it converges entry wise $a^n_{ij} \rightarrow a^n$, possible because of the topological structure of the fields considered, this is known as the $\infty$-norm and it is equivalent to the euclidean one.
 \begin{defi}
@@ -18,21 +18,21 @@ Since the determinant is a continuous function, then the group $SL(n;\F)$ of mat
 		0 & e^{ita}	\end{pmatrix} \right| t \in \mathbb{R}\right\}.$$
 		Since $-I$ is not in $G$ since $t$ has to be an odd multiple of $\pi$ in which case $ta$ cannot be an odd multiple of $\pi$ since $a$ is irrational, on the other hand we can take $t=(2n+1)\pi$ for carefully chosen integers to make $ta$ arbitrarily close to an odd multiple of $\pi$.\\
 \end{ex}
-	We will briefly remind some of the properties of matrix exponentials necessary to demonstrate properties of the Lie Algebra as the "logarithm" of a Lie Group in some sense.
+	We will briefly remind some of the properties of matrix exponentials necessary to demonstrate properties of the Lie Algebra as the “logarithm” of a Lie Group in some sense.
 \begin{ex}
 	ADD MORE EXAMPLES \label{11EXAMPLES}
 \end{ex}
-\begin{prop}[Matrix Exponential]
-	The matrix exponential of a complex or real $X \in M_{n\times n}$ defined as 
+\begin{prop}
+	The exponential matrix of a complex or real $X \in M_{n\times n}$ is defined as 
 	$$e^X = I + \sum_{m=1}^\infty \frac{X^m}{m!}.$$
 	satisfy the following properties:
 	\begin{enumerate}[label=(\alph*)]
 		\item It is a continuous map on the respective matrix spaces.
 		\item $(e^X)^*=e^{X^*}$.
-		\item If $XY=YX$ then $e^{X+Y}=e^Xe^Y$. As a consequence, $e^X$ is invertible with inverse $e^{-X}$ since $e^0=I$
+		\item If $XY=YX$ then $e^{X+Y}=e^Xe^Y$. As a consequence, $e^X$ is invertible with inverse $e^{-X}$ since $e^0=I$.
 		\item If $C$ is any invertible matrix, then $e^{CXC^{-1}}=Ce^XC^{-1}$.
 		\item $\|e^X\|\le e^{\|X\|}$ (supremum norm).
-		\item $\frac{d}{dt}e^{tX} = Xe^{tX}$
+		\item $\frac{d}{dt}e^{tX} = Xe^{tX}$.
 		\item \textbf{(Lie's Product Formula)} $e^{X+Y} = \displaystyle\lim_{m \rightarrow \infty} (e^{\frac{X}{m}}e^{\frac{Y}{m}})^m$.
 	\end{enumerate}
 	\label{MatrixExponential}
@@ -52,19 +52,19 @@ Since the determinant is a continuous function, then the group $SL(n;\F)$ of mat
 		&= e^{\|X\|} (e^{\|Y\|}-1) \le \|Y\|e^{\|X\|}e^{\|Y\|}.
 		\end{align*}
 		Continuity follows directly by choosing $Y$ in the neighborhood of a chosen $X$.
-		\item Follows directly from $(X^m)^*=(X^*)^m$ and continuity of the matrix adjoint
+		\item Follows directly from $(X^m)^*=(X^*)^m$ and continuity of the adjoint matrix.
 		\item Since $XY=YX$ then $(X+Y)^m=\sum_{k=0}^\infty {n\choose k}X^kY^{m-k}$ now since the exponential converges absolutely:
 		$$e^Xe^Y = \sum_{m=0}^\infty\sum_{k=0}^m \frac{X^k}{k!}\frac{Y^{m-k}}{(m-k)!}=\sum_{m=0}^\infty \frac{1}{m!}\sum_{k=0}^m{n\choose k}X^kY^{m-k} = \sum_{m=0}^\infty \frac{(X+Y)^m}{m!} = e^{X+Y}.$$
-		\item Directly:
+		\item 
 		$$e^{CXC^{-1}} = \sum_{m=0}^\infty \frac{(CXC^{-1})^m}{m!} = \sum_{m=0}^\infty \frac{CX^mC^{-1}}{m!} = C e^X C^{-1}.$$
-		\item The same result presented in $(1.1)$
-		\item Again we differentiate it directly term by term since the power series converges uniformly.
+		\item The same result presented in $(1.1)$.
+		\item Again we differentiate term by term since the power series converges uniformly.
 		$$\frac{d}{dt} e^{tX} = \frac{d}{dt}1+\sum_{m=1}^\infty \frac{d}{dt}\frac{(tX)^m}{m!} = \sum_{m\ge 1} \frac{t^{m-1}X^m}{(m-1)!} = Xe^{tX}.  $$
 		\item Define $A= e^{(X+Y)/k}$ and $B=e^{X/k}e^{Y/k}$, then by the norm inequality from $(1.1)$ and the triangle inequality imply:
 		$$\|A\|,\|B\|\le (e^{\|A\|+\|B\|})^{1/k}.$$
 		On the other hand, reorganizing terms for $B$ in terms of the power of $k$ by absolute convergence of the exponential:
 		$$B=\sum_{i=0}^\infty \frac{(X/k)^i}{i!}\cdot  \sum_{j=0}^\infty   \frac{(Y/k)^j}{j!}= \sum_{m=0}^\infty k^{-m} \sum_{i=0}^m \frac{A^i}{i!}\cdot \frac{B^{m-i}}{(m-i)!}.$$
-		Which allows us bond the norm of the difference by:
+		Which allows us to bond the norm of the difference by:
 		\begin{align*}
 		\|A-B\| &= \left\|\sum_{i=0}^\infty \frac{([A+B]/k)^i}{i!} - \sum_{m=0}^\infty k^{-m} \sum_{j=0}^m \frac{A^i}{i!}\frac{B^{m-i}}{(m-i)!}\right\|\\
 		&=\left\|\sum_{i=2}^\infty k^{-i}\frac{(A+B)^i}{i!} - \sum_{m=2}^\infty k^{-m}\sum_{j=0}^m \frac{A^i}{i!}\frac{B^{m-i}}{(m-i)!}\right\|\\
@@ -76,13 +76,13 @@ Since the determinant is a continuous function, then the group $SL(n;\F)$ of mat
 \end{proof}\\
 Now we are ready to present and prove some properties of the Lie Algebra of a matrix Lie Group.
 \begin{defi}
-	Given a matrix Lie Group $G\subset M_{n\times n}(\F)$ then its Lie Algebra is the set $\g = \{X \in M_{n\times n}(\F)\ |\ e^{tX} \in G \text{ for all } t\in\mathbb{R}\}$
+	Given a matrix Lie Group $G\subset M_{n\times n}(\F)$ then its Lie Algebra is the set $\g = \{X \in M_{n\times n}(\F)\ |\ e^{tX} \in G \text{ for all } t\in\mathbb{R}\}$.
 	\label{LIEALGEBRAFROMMLG}
 \end{defi}
 Considering this set instead of the Lie Group itself is very useful as they have very nice algebraic properties and an underlying structure that is quite rich and unique.\\
-One of the nicest properties this set posseses is that it is a vector subspace of $M_{n\times n}$ and is closed under a special operator, in fact:
+One of the nicest properties this set possesses is that it is a vector subspace of $M_{n\times n}$ and is closed under a special operator, in fact:
 \begin{prop}
-Given any two elements $X,Y$ in a Lie Algebra $\g$ of a Lie matrix group G, then:
+Given any two elements $X,Y$ in a Lie Algebra $\g$ of a Lie matrix group $G$, then:
 \begin{enumerate}[label=(\alph*)]
 	\item $sX \in \g \text{ for all } s \in \mathbb{R}$
 	\item $X+Y \in \g$
