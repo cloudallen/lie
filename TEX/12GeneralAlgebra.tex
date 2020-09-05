@@ -1,0 +1,63 @@
+\section{Algebras and General Properties}
+\begin{defi}
+	A pair $(\A,\cdot)$ where $\A$ is a vector space over a field $\F$ and $\cdot:\A\times\A\rightarrow \A$ is bilinear is defined as an $\F$-algebra.
+	\label{genalgebra}
+\end{defi}
+$\F$-algebras are everywhere in mathematical research, from matrix spaces to polynomials and are the main topic of this dissertation.\\
+Note that this is a convention used in the studies of linear properties of algebraic structures, and in another context an $F$-algebra can denote something very different.\\
+If some additional structure is present in the algebra, we shall denote so by the properties of its product, for example the following:
+\begin{itemize}
+	\item If for all $x,y \in \A$, $x\cdot y = y \cdot x$ it is called \textbf{commutative}.
+	\item If for all $x,y,z \in \A$, $(x\cdot y)\cdot z = x \cdot(y \cdot z)$ it is called \textbf{associative}.
+	\item If there exists an element $e \in \A$ such that $e \cdot x = x \cdot e = x$ for all $x \in \A$ then it is called \textbf{unital}.
+\end{itemize}
+\begin{defi}
+A subspace $B$ of an algebra $A$ which satisfies $x,y \in B \Rightarrow x\cdot y \in B$ is called a subalgebra which will be represented by $B\le A$, when it satisfies the further property that $x \in A, y \in B \Rightarrow x\cdot y \in B(y\cdot x\in B)$ it will be called a left-ideal(right-ideal), being simply called an ideal if it satisfies both, which will be denoted by $A\ideal B$ in that case.\\
+An algebra morphism is defined as a linear transformation that preserves the product, that is, given two algebras $(A,\cdot),(B,\times)$ then a linear transformation $\varphi:A\rightarrow B$ is such that:
+$$\varphi(x \cdot y) = \varphi(x) \times \varphi(y).$$
+\label{12subalgebra}
+\end{defi}
+It is generally useful on proving properties of algebras to consider different compositions of it, such as a quotient or direct sum, there is a natural way to expand the product by composing algebras:
+\begin{prop}
+If $B$ is an ideal of $(A,\cdot)$ then the quotient space $A/B$ with the product $\times$ defined as $[x] \times [y] =  [x\cdot y]$ is an algebra and the projection $[\ ]:A\rightarrow A/B$ is an algebra morphism.\\
+If $(A,\cdot)$ and $(B,\times)$ are algebras, then the vector space $A\oplus B$ is an algebra with\\ $(a,b)(a',b')=(a\cdot a',b \times b')$
+\label{genquotient}
+\end{prop}
+\begin{proof}
+	It just needs to be shown that the product is well defined, but given $x+B$ and $y+B$ then the product $(x+B)\cdot(y+B)=x\cdot y + x\cdot B + B\cdot y + B\cdot B = x\cdot y+B$ is in the same coset independently of the representing vector used. As for the direct sum, bilinearity follows directly from the vector space structure from $A\oplus B$ and the bilinearity of the product.
+\end{proof}\\
+We will state some theorems that are gonna be useful later for the specific cases of Lie Algebras but are valid in the general case of algebras:\\
+\begin{prop}
+Given algebras $(A,\cdot)$ and $(B,\times)$ and a morphism $\varphi:A\rightarrow B$ then: 
+\begin{enumerate}[label=\alph*.]
+	\item $\ker(\varphi) \ideal A$
+	\item $\text{im}(\varphi) \le B$ 
+	\item $A/\ker(\varphi) \simeq \text{im}(\varphi)$ where $(\simeq)$ denotes the existence of a bijective morphism (isomorphism).
+\end{enumerate}	
+\label{12isomorphism}
+\end{prop}
+\begin{proof}
+	Given $X \in \ker(\varphi)$ and $Y \in A$ then $\varphi(X \cdot Y) = \varphi(X)\times \varphi(Y) = 0$ and therefore $X\cdot Y \in A$ it is an ideal.\\
+	Given $\varphi(X),\varphi(Y) \in \text{im}(\varphi)$ then $\varphi(X) \times \varphi(Y) = \varphi(X\cdot Y)$, and since $X \cdot Y \in A$ then $\varphi(X),\varphi(Y) \in \text{im}(\varphi)$\\
+	Finally consider the morphism $\psi: X+\ker(\varphi) \mapsto \varphi(X)$, $\psi$ is well defined since $$\psi(X+\ker(\varphi))=\psi(Y+\ker(\varphi)) \Rightarrow \varphi(X)=\varphi(Y) \Rightarrow \varphi(X-Y)=0 \Rightarrow X-Y \in \ker\varphi.$$
+	It is a morphism by the way we define the product in the quotient: $$\psi([X]\cdot[Y]) = \psi([X \cdot Y]) = \varphi(X \cdot Y) = \varphi(X)\times \varphi(Y) = \psi([X])\times \psi([Y]).$$
+	Finally, it is surjective because if $\psi([X])=0$ then $\varphi(X)=0$ which implies that $[X]=[0]$ and for all $\varphi(X) \in \text{im}(\varphi)$ then $\varphi(X) = \psi([X])$, with $[X] \in A/\ker(\varphi)$
+\end{proof}\\
+\subsection*{Linear Algebra}
+\begin{prop}[Jordan-Chevalley Decomposition]
+	If $V$ is a finite dimensional vector space over $\F$ algebraically closed, then every $T:V\rightarrow V$ linear satisfies:
+	\begin{enumerate}[label=\Alph*]
+		\item There exists unique $S,N:V\rightarrow V$ satisfying $T=S+N$ with $S$ semi-simple and $N$ nilpotent
+		\item There exist polynomials $p(x)$ and $q(x)$ in one indeterminate, without constant term such that $S=p(T)$ and $N=q(T)$, in particular, $S$ and $N$ commute with every endomorphism commuting with $T$.
+		\item If $A \subset B \subset V$ are subspaces, and $T$ maps $B$ into $A$, then $S$ and $N$ also map $B$ into $A$
+	\end{enumerate}
+	\label{jordandecom}
+\end{prop}
+	\begin{proof}
+		Let $\Pi(x-a_i)^{m_i}$  be the characteristic polynomial of $T$, then $V=\oplus \ker(T-a_iI)^{m_i}$, by the Chinese Remainder Theorem, we can find a polynomial $p(x)$ such that:$$\begin{cases}
+		p(x) \equiv a_i \pmod{(x-a_i)^{m_i}},\\
+		p(x) \equiv 0 \pmod x.
+		\end{cases}$$
+		Now let $q(x)=x-p(x)$ and set $S=p(T)$ and $N=q(T)$, since they are both polynomials in $T$ then they commute with every endomorphism commuting with $T$ and furthermore they send subsets into subsets in accordance with $C.$, to show that $S$ is semi-simple, consider that $S-a_iI$ restricted to $\ker(T-a_iI)^{m_i}$ is $0$ and therefore it acts diagonally on each of those spaces, but then it acts diagonally on $V$ as a direct sum. Now $N$ is clearly nilpotent as it has no non-zero eigenvalues.\\
+		To prove uniqueness, consider that $S_1 + N_1 = S_2 + N_2 = T$, then $S_1 - S_2 = N_2 - N_1$ and since sum of commuting semi-simple operators is semi-simple and the same is valid for nilpotent then $S_1-S_2$ is both semi-simple and nilpotent and therefore it is $0$, implying $S_1 = S_2$ and therefore $N_1=N_2$.
+	\end{proof}

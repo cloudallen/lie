@@ -1,0 +1,141 @@
+\section{Axiomatic}
+We want to study Root Systems as appeared on Lie Algebras on their own, for such we are gonna define one as something that satisfies the conditions on the Summary portion of Section 2.4 .\\
+\begin{defi}[Root System]
+Given an Euclidean Space $E$ with inner product denoted by $\langle\ , \  \rangle$ and a finite subset $\Phi \subset E$, then the pair $(E,\Phi)$ is said to be a Root System if:
+\begin{enumerate}
+\item $\Phi$ spans $E$ and $0$ does not belong in $\Phi$
+\item If $\alpha \in \Phi$ then the only other multiple of $\alpha$ in $\Phi$ is $-\alpha$
+\item If $\alpha,\beta \in \Phi$ then $\beta-\frac{2\langle \beta,\alpha\rangle}{\langle \alpha,\alpha \rangle} \in \Phi$
+\item If $\alpha,\beta \in \Phi$ then $\frac{2\langle \beta,\alpha\rangle}{\langle \alpha,\alpha \rangle} \in \mathbb{Z}$
+\end{enumerate}
+To reduce notation, we will define $\frac{2\alpha}{\langle \alpha,\alpha\rangle}$ as $\alpha^\lor$ and furthermore we will define $s_\alpha$ as the linear transformation 
+$$s_\alpha(v) = v - \cartan{v}{\alpha}\alpha$$ therefore we can reduce 3. and 4. to:
+\begin{enumerate}[label=\arabic*b.]
+	\setcounter{enumi}{2}
+	\item If $\alpha,\beta \in \Phi$ then $s_\alpha(\beta)\in \Phi$
+	\item If $\alpha,\beta \in \Phi$ then $\cartan{\beta}{\alpha} \in \mathbb{Z}$
+\end{enumerate}
+\end{defi}
+Some further notation, we call the operation $(\alpha,\beta)\mapsto \cartan{\beta}{\alpha}$ as the Cartan product 
+It is important to note that axiom $3.$ has a nice geometric interpretation, that being: $\Phi$ is closed under reflections with respect to a hyperplane defined from a root.\\
+\textbf{EXAMPLES TODO}\\
+Axiom $4.$ allows us to deduce some simple integral restrictions to a root system:
+\begin{prop}
+	Let $\alpha,\beta \in \Phi$ with $\|\beta\|\ge \|\alpha\|$, denoting by $\theta$ the angle between then and the Cartan product is restricted to those in the following table:\\
+	\begin{table}[ht]
+		\caption{Possible Values of the Cartan product}
+		\begin{center}
+				\begin{tabular}{|c|c|c|}
+					\hline
+					$\cartan{\alpha}{\beta}$ & $\cartan{\beta}{\alpha}$ & 0 \\
+					\hline
+					0 & 0 & $90^\circ$\\
+					$\pm 1$ & $\pm 1$  & $60^\circ$ or $120^\circ$ \\
+					$\pm 1$ & $\pm 2$  & $45^\circ$ or $135^\circ$\\
+					$\pm 1$ & $\pm 3$  & $30^\circ$ or $150^\circ$ \\
+					$\pm 2$ & $\pm 2$  & $0^\circ$ or $180^\circ$\\
+					\hline
+				\end{tabular}
+		\end{center}
+		\label{Cartan}
+	\end{table}
+\end{prop}
+\begin{proof}
+	Consider that $\langle \alpha,\beta \rangle = \|\alpha\|\|\beta\|\cos\theta$ where $\theta$ is the angle between the roots, then since $\|\alpha^\lor\| = \frac{2}{\|\alpha\|}$ then:
+	$$ \cartan{\alpha}{\beta}\cartan{\beta}{\alpha}= \frac{4\|\alpha\|\|\beta\|}{\|\beta\|\|\alpha\|}\cos^2\theta = 4 \cos^2 \theta$$ 
+	Since $0\le \cos^2\theta \le 1$  then the only possibilities are with $\cartan{\alpha}{\beta}\cartan{\beta}{\alpha}\le 4$.\\
+	Which are all the cases present in Table \ref{Cartan} excluding the cases $(0,n)$ with $n\not=0$ and $(1,4)$. \\
+	The case $(0,n)\  n\not=0$ can be excluded since if $\cartan{\alpha}{\beta}=0$ then $\langle \alpha,\beta \rangle = 0$ which implies that $\cartan{\beta}{\alpha} = 0$\\
+	The case $1,4$ can also be excluded because if $4\cos^2 \theta = 4$ then $\theta = 0^\circ$ or $\theta = 180^\circ$ which implies that $\beta$ is a multiple of $\alpha$, meaning that $\beta = \pm \alpha$ and therefore $\cartan{\alpha}{\beta} = \pm2$.\\
+	Notice that the last case $(\pm 2,\pm 2)$ only occurs on proportional roots.
+\end{proof}
+An important corollary of this restriction is as follows:
+\begin{corol}
+	Let $\alpha,\beta$ be non-proportional roots, if $\langle \alpha,\beta \rangle > 0$ then $\alpha-\beta$ is a root and if $\langle \alpha,\beta \rangle <0$ then $\alpha+\beta$ is a root.
+	\label{corolcartan}
+\end{corol}
+\begin{proof}
+	Since $\langle \alpha, \beta \rangle$ is positive then Table \ref{Cartan} shows that either $\cartan{\alpha}{\beta}=1$ or $\cartan{\beta}{\alpha}=1$.\\
+	$$\cartan{\alpha}{\beta}=1 \Rightarrow s_\beta(\alpha) = \alpha - \beta$$
+	Which implies that $\alpha-\beta$ is a root (Axiom 3.)
+	And if $\cartan{\beta}{\alpha}=1$ then $\beta-\alpha$ is a root and therefore $-(\beta-\alpha)=\alpha-\beta$ is a root (Axiom 1.).\\
+	If $\langle \alpha,\beta \rangle$ is negative, then $\langle \alpha,-\beta \rangle $ is positive and therefore $\alpha-(-\beta) = \alpha+\beta$ is a root.
+\end{proof}
+Following this, we restrict ourselves to some specific bases of $E$ composed of roots based on Axiom $2.$.
+\begin{defi}
+	The set $R=\{v \in E| \langle \alpha,v \rangle \not=0 \text{ for all } \alpha \in \Phi\}$ is the set of regular elements.\\
+	$$\Phi^+(\gamma) = \{\alpha \in \Phi | \langle\alpha, \gamma\rangle>0 \}\ \ \ \ \ \Phi^-(\gamma) = \{\alpha \in \Phi|\langle \alpha,\gamma \rangle < 0\}$$
+	We call elements in $\Phi^+(\gamma)$ as positive roots and in $\Phi^-(\gamma)$ as negative roots with respective to $\gamma$.\\
+	Furthermore, with respect to this ordering, we call a positive root decomposable if $\alpha=\beta_1+\beta_2$ for $\beta_1,\beta_2 \in \Phi^+(\gamma)$, and indecomposable if it's not decomposable.
+\end{defi}
+\begin{teo}[Root System Base]
+	The set $\Delta(\gamma)$ of indecomposable elements is a base of $E$ and every element in $\Phi_+$ is in the $\mathbb{Z}_+$-span of $\Delta(\gamma)$.
+	\label{basetheo}
+\end{teo}
+\begin{proof}
+We proceed in steps:
+\begin{enumerate}
+	\item Every element in $\Phi_+$ is in the $\mathbb{Z}_+$-span of $\Delta(\gamma)$.\\
+	Otherwise, let $\beta$ be such element that can't be written with $\langle \gamma,\beta \rangle$ as small as possible obviously $\beta \not \in \Delta(\gamma)$, but in that case $\beta=\beta_1+\beta_2$ for some $\beta_1,\beta_2 \in \Phi^+$, but since $$\langle \gamma,\beta \rangle = \langle \gamma,\beta_1 \rangle + \langle \gamma,\beta_2 \rangle$$
+	And each of $\langle \gamma,\beta_1 \rangle$ and $\langle \gamma,\beta_2\rangle$ is positive, then $\beta_1,\beta_2$ must be in the $\mathbb{Z}_+$-span of $\Delta(\gamma)$ to avoid contradicting the minimality of $\beta$.\\
+	But then $\beta = \beta_1+\beta_2$ is in the $\mathbb{Z}_+$ span of $\Delta(\gamma)$
+	\item $\Delta(\gamma)$ spans $E$\\
+	Since $\Phi$ spans $E$ and $\Phi=\Phi^+\cup\Phi^-$ then the previous point proves that $\Delta$ spans $\Phi$ and therefore spans $E$.
+	\item If $\alpha,\beta$ are distinct elements in $\Delta(\gamma)$, then $\langle \alpha, \beta \rangle \le 0$.\\ Otherwise, since $\beta$ clearly can't be $-\alpha$, then $\alpha-\beta$ is in $\Phi$(Corollary \ref{corolcartan}`), therefore either $\alpha-\beta$ or $\beta-\alpha$ are in $\Phi^+$, but if $\alpha-\beta \in \Phi^+$ then $\alpha = \beta + (\alpha-\beta)$ and if $\beta-\alpha \in \Phi^+$ then $\beta = \alpha + (\beta-\alpha)$, contradicting the fact that $\alpha$ and $\beta$ are indecomposable.
+	\item $\Delta(\gamma)$ is a linearly independent set
+	Suppose not, then let $\{r_\alpha\}$ be such that $\sum_{\alpha \in \Delta} r_\alpha \alpha = 0$, divide this sum in the case in which $r_\alpha > 0$ (call it $\Delta_1$) and $r_\alpha<0$(call it $\Delta_2$), then:
+	$$\sum_{\alpha \in \Delta_1}r_\alpha \alpha = \sum_{\beta \in \Delta_2}-r_\beta \beta = \epsilon \not=0$$
+	But therefore $\langle \epsilon,\epsilon\rangle=\displaystyle\sum_{\alpha,\beta} -r_\alpha r_\beta\langle \alpha,\beta\rangle > 0$ bu $r_\alpha>0$,$r_\beta <0$ and $\langle \alpha, \beta \rangle \le 0$, a contradiction.\\
+	\textbf{Remark:} $4.$ Implies that any set in an euclidean space that are simultaneously non-acute are linearly independent.
+\end{enumerate}
+\end{proof}\\
+From this point forward we fix a basis $\Delta$ and call its elements simple.
+\begin{lema}
+	If $\alpha$ is a positive root but not simple, then $\alpha-\beta$ is a positive root for some $\beta \in \Delta$.\\
+	In particular, every positive root can be written as $\alpha_1+\cdots +\alpha_i$ with each $\alpha_k \in \Delta$ not necessarily distinct in such a way that each partial sum is a root.
+	\label{partialsum}
+\end{lema}
+\begin{proof}
+	If $(\alpha,\beta)\le 0$ for every $\beta \in \Delta$ then the remark in Theorem \ref{basetheo} would apply and $\Delta \cup \{\alpha\}$ would be linearly independent, which is absurd.Therefore there exists a $\beta \in \Delta$ such that $\langle \alpha,\beta \rangle > 0$ and then $\alpha-\beta \in \Phi$, positive because the uniqueness in the decomposition of $\alpha$ imply that $\alpha = \sum_\Delta k_\gamma \gamma$ with some $k_\gamma > 0$ for $\gamma \not=\beta$, and subtracting $\beta$ would not change this coefficient.
+\end{proof}
+\begin{lema}
+	Let $\alpha$ be a simple root, then $s_\alpha$ permutes all positive roots except $\alpha$
+	\label{permutepositive}
+\end{lema}
+\begin{proof}
+	Let $\beta \in \Phi^+ - \{\alpha\}$, then we can write 
+	$$ \beta = \sum_{\gamma \in \Delta} k_\gamma \gamma \ \ \ k_\gamma \in \mathbb{Z}_+ \ \ k_i \not=0 \text{ for some }\\i\not=\alpha$$
+	But then since $\alpha \in \Delta$ the coefficient $k_i$ is unchanged in $s_\alpha(\beta) = \beta - \cartan{\beta}{\alpha}\alpha$, and therefore $s_\alpha(\beta)$ has at least one positive coefficient and is therefore a positive root. Moreover since $s_\alpha$ is bijective and $s_\alpha(-\alpha)=\alpha$ then $s_\alpha(\beta)\not=\alpha$ 
+\end{proof}
+\begin{corol}
+	Set $\delta = \displaystyle \frac{1}{2}\sum_{\beta \in \Phi^+} \beta$. Then $s_\alpha(\delta) = \delta - \alpha$ for all $\alpha \in \Delta$
+	\label{corolexistancedelta}
+\end{corol}
+\begin{proof}
+	Let $\Phi_\alpha = \Phi^+-\{\alpha\}$ and remember that $s_\alpha(\alpha)=-\alpha$
+	\begin{align*}
+		s_\alpha(\delta) &= \displaystyle \frac{1}{2}\sum_{\beta \in \Phi^+} s_\alpha(\beta)\\
+		&= \displaystyle \frac{1}{2}\sum_{\beta \in \Phi_\alpha}  s_\alpha(\beta) + \frac{1}{2}s_\alpha(\alpha)\\
+		&= \frac{1}{2}\sum_{\beta \in \Phi_\alpha} \beta - \frac{1}{2}\alpha\\
+		&= \gamma - \frac{1}{2}\alpha - \frac{1}{2} \alpha = \gamma-\alpha
+	\end{align*}
+\end{proof}
+
+One important subset of Root Systems are those that are irreducible in the sense that there are no sub-root systems, to keep things algebraically simple, we define them in the following way:
+\begin{defi}[Irreducible Root Systems]
+	\label{irredRS}
+	A root system $\Phi$ is called reducible if there exists two proper subsets $\Phi_1$ and $\Phi_2$ of $\Phi$ with $\langle \Phi_1,\Phi_2 \rangle = 0$ and $\Phi_1 \cup \Phi_2 = \Phi$\\
+	A root system will be called irreducible if it's not reducible.
+\end{defi}
+One important property of the irreducibility on root systems is that it can be reduced to a base:
+\begin{prop}
+	A root system $\Phi$ with base $\Delta$:\\
+	If $\Delta$ can't be partitioned into two proper orthogonal subsets, then $\Phi$ is irreducible
+	\label{irbaseimplyirroot}
+\end{prop}
+\begin{proof}
+	Let $\Phi = \Phi_1 \cup \Phi_2$, then we can partition delta as: $\Delta = (\Delta \cap \Phi_1) \cup (\Delta \cap \Phi_2)$ which is a partition by orthogonal subsets, proper unless $\Delta$ is contained in one of them,  $\Phi_1$ without loss of generality, but that implies:
+	$$(\Delta,\Phi_2) = 0 \Rightarrow (E,\Phi_2) = 0 \Rightarrow \Phi_2 = 0$$
+	A contradiction, showing that if the base is irreducible then so is the root system.\\
+	The converse is true, although the proof is not entirely trivial and shall not be covered for the purposes of this section.
+\end{proof}

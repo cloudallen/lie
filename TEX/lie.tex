@@ -1,0 +1,96 @@
+\documentclass[svgnames,12pt,oneside, openright,a4paper]{scrbook}
+\usepackage{tikz,blindtext} %%%% Usado para o titulo  de capitulos
+\usepackage{palatino}
+\usepackage{chngpage,calc}
+\usepackage{hyperref}
+\usepackage{kpfonts}
+\usepackage{enumitem}
+\usepackage{conf}
+\usepackage{tikz-cd}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel} %%% Define o Idioma
+\usepackage{setspace}
+\onehalfspacing
+\newenvironment{palavraschaves}{\vspace{1cm}\textbf{Palavras Chaves: }}{}
+\newenvironment{keywords}{\vspace{1cm}\textbf{Keywords: }}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%Margens
+\addtolength{\parindent}{-0.2cm}
+\setlength{\textheight}{23cm}
+\setlength{\textwidth}{15.5cm}
+%%%%%%%%%%%%%%%%% Define o Titulo, o autor e o orientador%%%%%
+\newcommand{\titulo}{An Introduction to BGG Category $\bggO$}
+\newcommand{\orientador}{Dr. Luis Enrique Ramirez}
+\newcommand{\autor}{David José de Melo Júnior\xspace}
+\newcommand{\data}{July 2020}
+\newcommand{\gl}{\mathfrak{gl}}
+\newcommand{\g}{\mathfrak{g}}
+\newcommand{\h}{\mathfrak{h}}
+\newcommand{\tr}{\text{tr}}
+\newcommand{\gsl}{\mathfrak{sl}}
+\newcommand{\ad}{\text{ad}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\Aut}{\text{Aut }}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\z}{\mathfrak{z}}	
+\newcommand{\ideal}{\trianglelefteq}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\Sim}{\mathcal{S}}
+\newcommand{\Tr}{\text{Tr}}
+\newcommand{\n}{\mathfrak{n}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Rad}{\text{Rad }}
+\newcommand{\bggO}{\mathcal{O}}
+\newcommand{\W}{\mathcal{W}}
+\newcommand{\cartan}[2]{\langle {#1},{#2}^\lor\rangle}
+\usepackage{amssymb,amsmath,theorem}
+
+%%%%%%Teoremas e outros Ambientes
+\input{teoremas}
+
+
+\begin{document}
+%%%Insere o Titulo
+\input{titulo}
+%%% Insere o Sum�rio
+ \tableofcontents
+%%%%%%%%%%%%%%%%%
+\chapter*{Introduction}
+This project serves as an introduction to all the main basic results present in Lie Algebras with an emphasis on representation theory as a gateway to further development of the field, was initially started for the scientific initiation and masters project (PICME) whose purpose is to direct people to mathematics as an introduction to research and logical reasoning.
+\chapter{Lie Algebras: Basics}
+\input{11MatrixGroups}
+\input{12GeneralAlgebra}
+\input{13LieBasics}
+\input{14Nilpotent}
+\input{15Cartan}
+\input{16Weyl}
+\chapter{Root Decomposition}
+This chapter presents the main results on the study of semi-simple Lie Algebras from an algebraic perspective, the same approach can be found in Humphreys \cite{humphreys1}.
+\input{21AbsJordan}
+\input{22Toral}
+\input{23sl2}
+\input{24Root}
+\chapter{Root Systems}
+\input{31Axiom}
+\input{32Weyl}
+\section{Weight Theory}
+\chapter{Universal Lie Algebras and Conjugation}
+\input{41Conjugation}
+\section{Universal Enveloping Algebras}
+\section{Poincaré-Birkhoff-Witt Theorem}
+\chapter{Category $\bggO$}
+\section{Axiomatic and Initial Properties}
+\section{Verma Modules}
+\section{Formal Characters}
+\section{Harish-Chandra Theorem}
+\chapter{Observações(EDITS TO DO)}
+\begin{enumerate}
+	\item Proof of preservation of Abs Jordan Decomposition between any representation and the geometric Lemma \ref{32anyrootisbasic}
+	\item More Examples \ref{11EXAMPLES} \ref{MOREEXAMPLES} 
+	\item Counter-example to Lie Theorem in prime characteristic
+	\item Discussions and referencing.
+	(\cite{jacobson}\cite{humphreys2}\cite{sanmartin})
+\end{enumerate}
+\bibliographystyle{alpha}
+\bibliography{bibliography}
+\end{document}

@@ -1,0 +1,63 @@
+\section{Toral Sub-algebras}
+Considering the Jordan Decomposition of a Lie Algebra, we want a natural way to consider subalgebras of semi-simple element, in fact, if $\g$ is a finite dimensional Lie Algebra over a field $\F$, then since $\g$ is not nilpotent, there exists at least one element that is semi-simple. We want to analyze the structure of the following object:
+\begin{defi}[Toral Subalgebras]
+A subalgebra of a semi-simple Lie Algebra that consists only of semi-simple elements(with respect to the abstract Jordan Decomposition) is called a Toral subalgebra.
+\label{toralsubalg Def}
+\end{defi}
+The existence of such a subalgebra has already been discussed, it has some nice properties that allow us to decompose a semi-simple Lie Algebra based on a maximal toral subalgebra.
+\begin{prop}
+	If $\h\le\g$ is a toral sub-algebra, then $\h$ is abelian.
+	\label{abeliantoral}
+\end{prop}
+\begin{proof}
+	We shall prove that $\ad_\h(X)=0$ for any $X \in \h$. If this is not the case, then since $X$ is semi-simple there exists an eigenvector of $\ad_\h(X)$ with non-zero eigenvalue $\alpha$, let this be $H$, then $\ad(X)(H) = \alpha H \Rightarrow \ad(H)(X) = -\alpha H\Rightarrow \ad(H)^2 (X)=0$. Meaning that $\ad(H)(X)$ is an eigenvector of $\ad(H)$ with eigenvalue $0$\\
+	On the other hand, $H$ is semi-simple, therefore there is a basis ${Y_i} \subset \g$ of eigenvectors then $X = \sum \beta_i Y_i$, applying $\ad(H)$ to this relation we see that $\ad(H)X$ is a sum of non-zero eigenvectors or $0$, contradicting the fact that $\ad(H)(X)$ is an eigenvector with eigenvalue $0$ or the fact that $H\not=0$.
+\end{proof}\\
+\begin{prop}
+If $\h$ is a maximal toral subalgebra, then it's possible to decompose $\g$ with respect to $\h^*$, for $\alpha \in \h^*$ define $$\g_\alpha = \{X \in \g | [H,X]=\alpha(H)X \text{ for all } H \in \h\}$$
+Then these spaces satisfy $[\g_\alpha,\g_\beta]\subset \g_{\alpha+\beta}$ for any $\alpha,\beta \in \h^*$ and moreover, if $\alpha+\beta \not=0$ then $\kappa(\g_\alpha,\g_\beta)=0$.
+\label{OrthogonalityAndSum}
+\end{prop}
+\begin{proof}
+	Since all elements of $\ad H$ are commuting semi-simple endomorphisms, then they are all diagonal with respect to a basis of $\g$, in this case we can do the decomposition 
+	$$\g = \bigoplus_{\alpha \in \h^*} \g_\alpha$$
+	Now fixing $X \in \g_\alpha$ and $Y \in \g_\beta$, then:
+	$$[H,[X,Y]] = [[H,X],Y]+[X,[H,Y]] = \alpha(H) [X,Y] + \beta(H) [X,Y] = (\alpha+\beta)(H)[X,Y]$$
+	Which implies that $[X,Y] \in \g_{\alpha+\beta}$.\\
+	For the remaining assertion, consider that for $X \in \g_\alpha$, $Y \in \g_\beta$ and $H \in \h$ then:
+	\begin{align*}
+	\kappa([H,X],Y)&=\alpha(H)\kappa(X,Y)\\
+	\kappa(X,[H,Y])&=\beta(H)\kappa(X,Y)\\
+	\kappa([H,X],Y) = -\kappa(X,[H,Y]) &\Rightarrow (\alpha + \beta)(H)\kappa(X,Y) = 0
+	\end{align*}
+\end{proof}
+\begin{corol}
+	The restriction of $\kappa$ to $\g_0$ is non-degenerate
+	\label{g0killingnondeg}
+\end{corol}
+\begin{proof}
+	If it was, then let $X \in \g_0$ be such that $\kappa(X,\g_0)=0$, but in that case by the previous relation $\kappa(X,\g_\alpha) =0$ for any $\alpha\not=0$, since $\g= \bigoplus \g_\alpha$ then, $\kappa(X,\g)=0$, since the killing form of $\g$ is non-degenerate, we reached a contradiction.
+\end{proof}
+\begin{teo}
+	Let $\h$ be a maximal toral subalgebra, then $\h=\g_0$
+	\label{hg0}
+\end{teo}
+\begin{proof}
+	We will proceed in steps:
+	\begin{enumerate}
+		\item $\g_0$ contains the nilpotent and semi-simple parts of its elements.\\
+		To say that $X \in \g_0$ is to say that $\ad(X)(\h)=0$, but by Jordan decomposition properties, $\ad \ S$ and $\ad N$ must map $\h$ to $0$ (they are polynomials in $\ad(X)$)
+		\item All semi-simple elements of $\g_0$ lie in $\h$.\\
+		If $S \in \g_0$ is semi-simple and $[\h,S]=0$, then $\h+\F S$ is a toral subalgebra, therefore $S \in \h$ by maximality of $\h$.
+		\item The restriction of $\kappa$ to $\h$ is non-degenerate.\\
+		Let $H \in \h$ be such that $\kappa(H,\h)=0$, if $N \in \g_0$ is such that $N$ is nilpotent, then $[X,H]=0$ and $\ad(X)$ is nilpotent, therefore $\ad(N)\ad(H)$ is nilpotent and therefore $\Tr(\ad(N)\ad(H))=0 \Rightarrow \kappa(N,H)=0$, but then for all $X=S+N \in \g_0$, we have that $\kappa(H,X)=0$ since $S \in \h$ by $(2)$. contradicting Corollary \ref{g0killingnondeg}, since $H \in \g_0$.
+		\item $\g_0$ is a nilpotent algebra. \\
+		If $S \in \g_0$ is semi-simple, then $S \in \h$ and therefore $[S,\g_0]=0$, implying that $\ad(S)$ is nilpotent in $\g_0$. Now if $X=S+N$ is any element of $\g_0$ then $\ad(X)$ is the sum of commuting nilpotent endomorphisms, and therefore $\ad(X)$ is nilpotent, by Engel's Theorem $\g_0$ is nilpotent
+		\item $\h \cap [\g_0,\g_0]=0$.\\
+		Since $[\h,\g_0]=0$ then $\kappa(\h,[\g_0,\g_0]) =0$ by associativity, therefore $[\g_0,\g_0]\not \in \h$ by $(3)$
+		\item $\g_0$ is abelian.\\
+		Otherwise $[\g_0,\g_0]\not=0$, since $\g_0$ is nilpotent then $[\g_0,\g_0]\cap\z(\g_0)\not=0$, let $X$ be an element in this interception, then its nilpotent part $N$ is non-zero and also lies in $Z(\g_0)$ (since $\ad\ N$ is a polynomial in $\ad \ X$), but then since $\ad \ N$ is nilpotent and commutes with $\g_0$ then $\kappa(N,\g_0)=0$, contradicting Corollary \ref{g0killingnondeg}
+		\item $\h=\g_0$\\
+		Otherwise, there exists a non-zero nilpotent element $N \in \g_0$, but in that case since $\g_0$ is abelian then for every $X \in \g_0$, $\ad \ N \ad \ X = \ad \ X \ad \ N$ is a nilpotent endomorphism and therefore has trace $0$, implying that $\kappa(N,\g_0)=0$ contradicting Corollary \ref{g0killingnondeg}
+	\end{enumerate}
+\end{proof}

@@ -1,0 +1,54 @@
+\section{Nilpotent and Solvable Algebras}
+This first section of results focuses on results about finite dimensional nilpotent algebras first focusing on matrix algebras, the results here are self-contained and play an important role in representation theory.\\
+We first correlate nilpotent matrices to ad-nilpotent matrices, the following proposition is a pre requisite to all further proves in this section:
+\begin{prop}
+If $X \in \gl(V)$ is nilpotent with $X^n=0$ then $\ad(X)$ is nilpotent, that is, for some $N$ $\ad(X)^NY = 0$ for all $Y \in \gl(V)$.
+\label{propadnilpotency}
+\end{prop}
+\begin{proof}
+Let $L_X$ and $R_X$ in $\gl(\gl(V))$ be the left and right multiplication by $X$ respectively, then since $L_X^n = R_X^n = 0$, since $\ad(X) = L_X - R_X$ and $L_XR_XY = XYX = R_XL_XY$, we just use the binomial theorem for commuting operators:
+$$\ad(X)^{2n} = (L_X-R_X)^{2n} = \sum_{k=0}^{2n} (-1)^{2n-k}{2n \choose k} L_X^{k} R_X^{2n-k}.$$
+Which is $0$ term by term because $R_x^{2n-k}=0$ for $k<n$ since $2n-k>n$, and if $k\ge n$ then $L_x^k=0$.
+\end{proof}
+\begin{teo}[Engel's Lemma]
+	 Let $\g$ be a sub algebra of $\gl(V)$, if $\g$ consists of nilpotent endomorphisms and $V\not=0$, then there exists a nonzero vector $v \in V$ for which $Xv=0$ for all $X \in v$.
+	 \label{Engel's Lemma}
+\end{teo}
+\begin{proof}
+	We will proceed by induction, the case when $\dim \g = 1$ with $\{X\}$ as a basis is satisfied by taking any vector $v\not=0$ and considering the smallest value of $n$ such that $X^nv=0$, then $X(X^{n-1}v) = 0$ and $X^{n-1}v \not= 0$.\\
+	If $\h$ is any proper and nonzero subalgebra of $\g$, then since $\ad(H)$ is nilpotent for any $H \in \h$ then it also acts nilpotently on the quotient space $\g/\h$ with well defined action since it is a subalgebra, so by the induction hypothesis there exists some $\overline{X_0} \in \g/\h$ such that $[H,\overline{X_0}] \in \h$ therefore since $[X_0,X_0]=0$ then $\h \oplus \F X_0$ is a subalgebra of $\g$.\\
+	Assuming $\dim \g\ge2$ then there exists a starting $\h$ as above because any non-zero element of $\g$ forms a subalgebra, now assume  $\h$ to be a maximal proper subalgebra with respect to inclusion then since $\h + \F X_0$ as above is a subalgebra that includes $\h$, by maximality $\g = \h + \F X_0$ and $\h$ is an ideal because $[\g,\h] = [\h,\h]+ [\F X_0,\h] \subset \h.$\\
+	Also by the induction, $W=\{v \in V|Hv = 0 \text{ for all } H \in \h\}$ is non-zero, but since $\h$ is an ideal, this space is stable under $\g$, let $X \in \g$ ,$Y \in \h$ and $w \in W$:
+	$YXw = XYw - [X,Y]w = 0$
+	Finally $X_0$ acts on $W$ and is nilpotent, implying there exists a non-zero vector $v \in W$ such that $X_0v=0$, therefore $X v = 0$ for any $X \in \g$.
+\end{proof}\\
+\begin{teo}[Engel's Theorem]
+If all elements of $\g$ are ad-nilpotent, then $\g$ is nilpotent.
+\label{Engel's Theorem}
+\end{teo}
+\begin{proof}
+The image of the adjoint representation satisfies the conditions of Theorem \ref{Engel's Lemma} in $\gl(\g)$, implying that there exists non-zero $X \in \g$ such that $[X,\g]=0$, therefore $\z(\g)\not=0$, now $\g/Z(\g)$ consists of ad-nilpotent and has smaller dimension than $L$, but if $\g/\z(\g)$ is nilpotent then $\g$ is also nilpotent, in fact if $\g/(\z(\g))$ is nilpotent then $\g^n \subset \z(\g)$ for some $n$, but that implies $\g^{n+1} \subset [\g,\z(\g)] = 0$.
+\end{proof}\\
+A similar result is valid for solvable Lie Algebras under other conditions, consider $\F$ to have characteristic $0$ and be algebraically closed, then the following is valid:
+\begin{teo}[Lie's Theorem]
+	Let $\g$ be a solvable Lie Algebra of $\gl(V)$, $V$ finite dimensional, then $V$ contains a vector $v$ and a linear $\lambda:\g \rightarrow \F$ such that $Xv = \lambda(X)v$ for all $X \in \g$.
+	\label{Lie's Theorem}
+\end{teo}
+\begin{proof}
+	The proof of this theorem follows the same steps as for Engel's Lemma (Theorem \ref{Engel's Lemma}).
+	\begin{enumerate}
+		\item Locate an ideal $\h$ of $\g$ with co-dimension one.
+		\item Common eigenvector exist for $\h$ by induction.
+		\item $\g$ stabilizes the space consisting of these eigenvectors.
+		\item Find an eigenvector in that space for a single $X_0 \in \g$ such that $\g = \h \oplus \F X_0$.
+	\end{enumerate}
+	\begin{enumerate}
+		\item Since $\g$ is solvable then $\g^{(2)}=[\g,\g]\not=\g$, therefore any co-dimension one vector space  containing $\g^{(2)}$ is an ideal.\\
+		\item Proceeding by induction on $\dim \g$, if $\dim \g=0$ then the result follows by vacuity, therefore since $\dim \h = \dim \g - 1 < \dim \g$ then we assume the existence of a nonzero common eigenspace. $$W = \{v \in V | Xv = \lambda(X)v \text{ for some } \lambda \in \h^* \text{and for all }X \in \h\}.$$
+		\item To prove that $\g$ stabilizes $W$, let $w \in W$, $X \in \g$ and $Y \in \h$ arbitrary. Then $YXw = XYw - [x,y]w = \lambda(Y)Xw - \lambda([X,Y])w$. Thus proving $\lambda([X,Y])=0$ will prove our desired result.\\
+		For this let $n$ be the smallest integer such that $\{w,Xw,\cdots,X^nw\}$ is linearly independent, and let $V_i = \langle w, Xw , \cdots, X^i w\rangle$ then $V_{N} = V_n$ for $N>n$ and $\dim V_n = n$, $\h$ stabilizes each $V_i$ which can easily be proven by induction:
+		$$YXX^{n-1}w = XYX^{n-1}w - [X,Y]X^{n-1} = (XY - [X,Y])X^{n-1}w$$ since $X$ clearly stabilizes $V_i$ and $Yw = \lambda(Y)w$.\\
+		Now from this we know that $\Tr_{V_n}(Y)=n\lambda(Y)$ but this is valid for the special element in $Y$ of the form $[X,Y]$, since $\Tr([X,Y])= \Tr(XY)-\Tr(YX)=0$ then $n\lambda([X,Y])=0$. Since we assume characteristic $0$ this forces $\lambda[X,Y]=0$.
+		\item Since $X_0: W \rightarrow W$, then there exists an eigenvector $v \in W$ for $X_0$, just extend $\lambda: \h \rightarrow \F$ to include $X_0$ in its domain and $\lambda(X_0)$ as the eigenvalue.
+		\end{enumerate}
+\end{proof}

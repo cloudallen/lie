@@ -1,0 +1,42 @@
+\begin{thebibliography}{Hum08}
+
+\bibitem[Hal04]{brian}
+Brian~C. Hall.
+\newblock {\em Lie Algebras and Representations: An Elementary Introduction}.
+\newblock Springer, 2004.
+
+\bibitem[Hum72]{humphreys1}
+J.E Humphreys.
+\newblock {\em Introduction to Lie Algebras}.
+\newblock Springer, 1972.
+
+\bibitem[Hum08]{humphreys2}
+J.E Humphreys.
+\newblock {\em Representations of semisimple Lie Algebras in the BGG category
+  $\mathcal{O}$}.
+\newblock AMS, 2008.
+
+\bibitem[Jac89]{jacobson}
+Nathan Jacobson.
+\newblock {\em Basic Algebra II}.
+\newblock W. H. Freeman and Company, 2nd edition edition, 1989.
+
+\bibitem[Kac10]{kaclec}
+Victor Kac.
+\newblock Lecture notes: Introduction to lie algebras.
+\newblock {\em MIT}, 2010.
+\newblock \url{https://math.mit.edu/classes/18.745/classnotes.html}.
+
+\bibitem[Kir08]{kirillov}
+A.~A. Kirillov.
+\newblock {\em Introduction to Lie Groups and Lie Algebras}.
+\newblock Cambridge University Press, Department of Mathematics, Stony Brook,
+  NY 11794, 2008.
+\newblock \url{https://www.math.stonybrook.edu/~kirillov/mat552/liegroups.pdf}.
+
+\bibitem[Mar09]{sanmartin}
+L.~A. B.~San Martin.
+\newblock {\em Álgebras de Lie}.
+\newblock TODO, 2009.
+
+\end{thebibliography}

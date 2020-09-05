@@ -1,0 +1,122 @@
+\section{Weyl's Theorem}
+\subsection*{Modules}
+Before we start talking about the Theorem itself, we remind the notion of representations presented before and using the notation of modules we will talk about composing representations in the most natural way, and using those composition we are able to prove the Weyl's Theorem of irreducibility.\\
+We remind the three properties that define a module, $V$ is a vector space and $\g$ is a Lie Algebra, with $v,w \in V$ and $X,Y \in \g$, and an action from $\g$ to $V$ represented by concatenation.
+\begin{enumerate}[label=\Alph*.]
+	\item $X(v+w) = Xv+Xw$ 
+	\item $(X+Y)v = Xv + Yv$
+	\item $[X,Y]v = X(Yv) - Y(Xv)$´
+\end{enumerate}
+Our first results focuses on the composition of different modules with respect to their vector space structure
+\begin{prop}
+	Let $V$ and $W$ be $\g$-modules, and $X \in \g$ a generic element, then:
+	\begin{enumerate}
+		\item $V \oplus W$ with the action $X(v+w) = Xv+Xw$ is a $\g$-mod
+		\item $V^*$ with the action $(Xf)(v) = -f(Xv)$ is a $\g$-mod
+		\item $V \otimes W$ with the action $X(v\otimes w) = Xv \otimes w + v \otimes Xw$
+		\item If $W \subset V$, then $V/W$ with $X(\overline{v}) = \overline{Xv}$ is a $\g$-mod
+		\item $\text{Hom}_\F(V,W)$ with the action $(Xf)(v) = X(f(v)) - f(Xv) $
+	\end{enumerate}
+	\label{module composition}
+\end{prop}
+\begin{proof}
+	A. and B. are direct in all cases, the only problem is showing C.
+	\begin{enumerate}
+		\item 
+		\begin{align*}
+		[X,Y](v+w) &=[X,Y]v + [X,Y]w = X(Yv) - Y(Xv) + X(Yw)-X(Yw)\\ &= X(Yv+Yw) - Y(Xv+Xw) = X(Y(v+w)) - Y(X(v+w))
+		\end{align*}
+		\item Note that the minus sign is necessary.
+		\begin{align*}
+		([X,Y]f)v &= -f([X,Y]v) = -f(X(Yv)-Y(Xv)) = f(Y(Xv))-f(X(Yv)) \\&= -(Yf)(Xv) + (Xf)(Yv) = (X(Yf))(v) - (Y(Xf))(v) = (X(Yf)-Y(Xf))(v)
+		\end{align*}    
+		\item 
+		\begin{align*}
+		[X,Y](v\otimes w) &= ([X,Y]v)\otimes w + v \otimes ([X,Y]w)\\ &= X(Yv) \otimes w - Y(Xv) \otimes w + v \otimes X(Yw) - v \otimes (Y(Xw))\\
+		&= X(Yv) \otimes w + v \otimes X(Yw) + Xv \otimes Yw + Yv \otimes Xw  \\
+		& - Y(Xv) \otimes w - v \otimes Y(Xw) - Xv \otimes Yw - Yv \otimes Xw\\
+		&= X(Yv \otimes w) + X(v \otimes Yw) - Y(Xv \otimes w) - Y(v \otimes Xw)\\ &= X(Y(v\otimes w)) - Y(X(v\otimes w))
+		\end{align*}
+		\item The only problem proving this one is that the action is well defined, in fact if $\overline{v} = \overline{w}$ then $\overline{Xv} - \overline{Xw} = \overline{X(v-w)} = \overline{0}$ since $\g W \subset W$
+
+		\item The action defined is justified in the case of finite dimension by the trivial isomorphism between $\text{Hom}_\F(V,W)$ and $V^*\otimes W$
+		\begin{align*}
+		(X(Yf))(v) &= X((Yf)(v)) - (Yf)(Xv) = X(Yf(v)-f(Yv)) - Y(f(Xv)) - f(YXv)\\
+		(Y(Xf))(v) &= Y(Xf(v)-f(Xv)) - X(f(Yv)) - f(XYv)\\
+		[X(Yf)-Y(Xf)](v)&= X(Yf(v)) - Y(Xf(v)) - [f(X(Yv))-f(Y(Xv))] =\\
+		&= [X,Y]f(v) - f([X,Y]v) = ([X,Y]f)(v)
+		\end{align*}
+	\end{enumerate}
+\end{proof}\\
+Now we shift our focus to the structure of modules themselves as algebraic structures, vector spaces embedded with a $\g$-action that is compatible with the bracket, the basic algebraic structure that is necessary to prove Weyl's Irreducibility Theorem can be summarized as follows:
+\begin{defi}
+A sub-module of a module $V$ is a subspace $W$ of $V$ such that $\g W \subset W$.\\
+A linear transformation $T$ between modules $V$ and $W$ is said to be a module morphism if $T(Xv)=XT(v)$ for any $X \in \g$.
+\label{module algebra}
+\end{defi}
+
+\begin{prop}
+	Let $T:V\rightarrow W$ be a module morphism, then $\ker T$ is a sub-module of $V$
+	\label{morphism}
+\end{prop}
+\begin{proof}
+	$\ker T$ is a subspace of $V$, now for any $X \in \g$ and $v \in \ker T$ 
+	$$T(Xv) = XT(v) = X0= 0$$
+	Therefore $Xv \in \ker T$ and the proof is done.
+\end{proof}
+\begin{defi}
+	Regarding the sub-structure of a particular module:
+\begin{itemize} 
+	\item A module $V$ is said to be irreducible if it has no proper and non-trivial sub-modules.
+	\item A module $V$ is said to be indecomposable if it can't be decomposed as a direct sum of any two of its proper sub-modules, that is if $V=M\oplus N$ for $M$ and $N$ sub-modules then $M=0$ or $N=0$.
+	\item A module $V$ is said to be reducible if it is not irreducible.
+\end{itemize}
+\label{module-types}
+\end{defi}
+\subsection*{Initial Results on Representations}
+\begin{lema}
+	Let $\rho:\g\rightarrow \gl(V)$ be a representation of a semi-simple Lie Algebra $\g$, then $\rho(\g)\subset \gsl(V)$.
+	\label{trace0lemma}
+\end{lema}
+\begin{proof}
+	Since $\g$ is semi-simple then $\g=[\g,\g]$, since $[\g,\g] = \bigoplus [\g,\g_i] = \g$ by simplicity.\\ 
+	Now since $\g=[\g,\g]$ then we can represent an element of $\g$ by $[X,Y]$ and therefore $\Tr(\rho[X,Y]) = \Tr(\rho(X)\rho(Y)-\rho(Y)\rho(X))=0$.\\
+	In particular, if $V$ is one-dimensional then $\rho(\g) = 0$
+\end{proof}
+\begin{lema}[Schur's Lemma]
+	Let $V$ be a irreducible $\g$-module over an algebraically closed field $\F$ and $\rho:\g \rightarrow \gl(V)$ be the correspondent representation, where  then the only endomorphism that commutes with $\rho(\g)$ are the scalars
+	\label{Schur's Lemma}
+\end{lema}
+\begin{proof}
+	If $T$ be a non-trivial endomorphism that commutes with $\rho(\g)$, then $T$ is a module morphism, and therefore its kernel must be $0$ since it is a sub-module of $V$.\\
+	We also know that $T - \lambda I$ commutes with $\rho(\g)$ for all $\lambda \in \F$, therefore $T-\lambda I$ is either $0$ or an isomorphism, but since the field is algebraically closed, $T$ has an eigenvalue, and in that case the kernel can't be $0$, therefore $T-\lambda I = 0 \Rightarrow T=\lambda I$ for some $\lambda$.
+\end{proof}\\
+Now we'll proceed to introduce the idea of a special element with respect to a representation, classically called the Casimir element.\\
+Let $\beta:\g \times \g \rightarrow \F$ be any associative non-degenerate form, then for every basis $A=\{X_1,\cdots,X_n\}$ of $\g$ there exists a basis $B=\{Y_1,\cdots,Y_n\}$ such that $\beta(X_i,Y_j)=\delta_{ij}$. In which case writing $[X,X_i] = \sum_j a_{ij} X_j$ and $[X,Y_i]=\sum_j b_{ij} Y_j$. Note that
+$$a_{ik} = \sum_{j=1}^n a_{ij}\delta_{jk} = \sum_{j=1}^n a_{ij} \beta(X_j,Y_k) =\beta([X,X_i],Y_k) = -\beta (X_i,[X,Y_k]) = -b_{ki} $$
+Now if $\rho:\g \rightarrow \gl(V)$ is a one-to-one representation of a semi-simple $\g$, then the trace-form $\beta(X,Y)=\Tr(\rho(X)\rho(Y))$ satisfies the condition since $\rho(\g) \sim \g$ and $\text{rad} \beta$ is an ideal of $\g$ therefore $\beta$ is non-degenerate.\\
+Now we define $c_\rho \in \gl(V)$ as $c_\rho = \displaystyle\sum_{i=1}^n \rho(X_i)\rho(Y_i)$ in the case of a one-to-one representation, then $\Tr(c_\rho) = \displaystyle \sum_{i=1}^n\Tr(\rho(X_i)\rho(Y_i))= n = \dim \g$
+One of the important properties of $c_\rho$ is that it commutes with $\rho(\g)$, in fact, using $X_i=\rho(X_i)$ for simplicity in the proof:
+\begin{align*}
+Xc_\rho - c_\rho X &= \sum_{i=1}^n XX_iY_i - X_iY_iX = \sum_{i=1}^nXX_iY_i - X_iXY_i + X_iXY_i - X_iY_iX  \\
+&=  \sum_{i=1}^n [X,X_i]Y_i + X_i[X,Y_i] = \sum_{i,j=1}^n a_{ij}X_jY_i + \sum_{i,j=1}^n b_{ij}X_iY_j = 0
+\end{align*}
+In case of a representation that is not one-to-one, we can consider another Lie Algebra $\g'=\g/\ker \rho$ and a new representation $\rho': \g' \Rightarrow \gl(V)$ that satisfies the given conditions, since $\rho(\g)=\rho(\g')$ then $c_\rho'$ still commutes with $\rho(\g)$.
+With this discussion we can summarize the properties of the Casimir element of representation:
+\begin{prop}
+Given finite-dimensional semi-simple Lie Algebra $\g$, and a representation $\rho:\g\rightarrow \gl(V)$, then there exists an element $c_\rho \in \gl(V)$ that commutes with $\rho(\g)$ and has non-zero trace.\\
+In case $\rho$ is irreducible, then $c_\rho$ acts as a scalar(Schur's Lemma).
+\end{prop}
+\subsection*{Weyl's Theorem of Irreducibility}
+\begin{teo}
+	Let $V$ be a finite dimensional $\g$-mod, where $\g$ is a finite dimensional semi-simple Lie Algebra, then every proper sub-module $W\subset V$ admits a sub-module complement $W'$ such that $V=W\oplus W'$
+	\label{Weyl's Theorem}
+\end{teo}
+\begin{proof}
+	This proof proceeds by various cases and the use of induction.\\
+	If $W$ is an irreducible co-dimension one sub-module of $V$, then $V/W$ is a $\g$-mod of dimension one, since $\g$ is semi-simple then $\g V \subset W$ and then since $c_\rho$ is a $\g$-mod morphism then $\ker c_\rho$ is a module, but $\ker c_\rho$ can't be $0$ because $\Tr c_\rho = \dim V \not=0$, and since $c:V\rightarrow W$($c$ being in the span of $\rho(\g)^2$), and $c$ acting as a scalar in $W$ by Schur's Lemma then $\ker c_\rho$ is the desired complement to $W$.\\
+	If $W$ is a reducible co-dimension one sub-module of $V$, then let $W'\subset W$ be a sub-module, then $V/W$ is a sub-module and in fact it's immersed in the sub-module $V/W'$ with co-dimension one, since $\dim(V/W')<\dim(V)$ then the existence of a complement to $V/W$ in $V/W'$ proceeds by induction.\\
+	Now let $W$ be any sub-module, consider $H=\text{Hom}(V,W)$ viewed as a $\g$-module, and let $\mathcal{V}$ be the subspace of $H$ consisting of maps whose restriction to $W$ is a scalar, that is $\mathcal{V}=\{f \in H | f(w)=a\cdot w \text{ for all } w \in W\}$ and let $\mathcal{W}$ be the ones whose restriction to $W$ are $0$. These are both sub-modules of $H$ and clearly $\mathcal{W} \subset \mathcal{V}$ is a subspace of co-dimension one(since their complement is determined by a scalar), to prove the fact that they are sub-modules, let $f \in \mathcal{V}$, $w \in W$ and $X \in \g$, then:
+	$$(Xf)(w) = X(f(w)) - f(Xw) = X(a\cdot w)-a\cdot (Xv) = 0.$$
+	And therefore $Xf \in \mathcal{W}$, therefore $\mathcal{W}$ has a complement in $\mathcal{V}$, let this complement be spanned by a particular $f$, by Lemma 1.6.5, $\g$ acts on $f$ trivially and therefore $(Xf)(v) = 0 \Rightarrow X(f(v)) - f(Xv)=0$, i.e that $f$ is a $\g$-mod morphism. Finally, since $f$ sends $V$ into $W$ and is a scalar in $W$, then $V=W \oplus \ker f$. 
+\end{proof} 

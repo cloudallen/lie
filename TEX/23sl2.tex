@@ -1,0 +1,81 @@
+\section{Representations of $\gsl(2)$}
+Considering the $\gsl(2,\F)$ Lie Algebra over an algebraically closed field with characteristic $0$, a traditional basis considered of this algebra as a matrix algebra is the following:
+$$X = \begin{pmatrix}
+0 & 1 \\
+0 & 0 
+\end{pmatrix}, \ \ H = \begin{pmatrix}
+1 & 0 \\
+0 & -1 
+\end{pmatrix}, \ \ Y = \begin{pmatrix}
+0 & 0 \\
+1 & 0 
+\end{pmatrix}$$
+Calculating the commutators in this algebra directly, one can easily find the following relations:
+$$[X,Y]=H, \ \ [H,X]=2X, \ \ [H,Y]=-2Y$$
+Considering the fact that $H$ is diagonal and that the preservation of the Jordan Decomposition implies that $H$ acts diagonally in any $\g$-mod $V$( Proposition \ref{PreservationOfAbsJordan}). Because of this, one can decompose $V$ as a sum of eigenspaces with respect to $H$, letting $V_\lambda = \{v \in V|Hv=\lambda v\}$ then if we assume $V$ to be finite-dimensional $V=\displaystyle\bigoplus_{\lambda \in \F} V_\lambda$. Whenever $V_\lambda \not=0$ we call $\lambda$ a weight and we call $V_\lambda$ a weight space.\\
+\begin{lema}
+	If $v \in V_\lambda$ then $Xv \in V_{\lambda+2}$ and $Yv \in V_{\lambda-2}$
+\end{lema}
+\begin{proof}
+	Since $V$ is a $\g$-mod then $[A,B]v = A(Bv)-B(Av)$ for any $v \in V$ and $A,B \in \g$, therefore:
+	$$H(Xv)=[H,X]v + X(Hv) = 2Xv + X(\lambda v) = (\lambda + 2)Xv$$
+	$$H(Yv)=[H,Y]v + Y(Hv) = -2Yv + Y(\lambda v) = (\lambda - 2)Xv$$
+\end{proof}\\
+Since $V$ is finite-dimensional, we know that there exists some $\lambda$ in such a way that $V_\lambda\not=0$ such that $V_{\lambda+2}=0$, we will call one of these weights maximal and any vector in $V_\lambda$ as a maximal vector. One direct consequence of this definition is:
+\begin{prop}
+If $v$ is maximal vector then $Xv=0$
+\end{prop}
+We can determine the action of $\g$ in a special subset of vectors, inspired by the idea of determining the action of $X$ by the action of $Y$:
+\begin{lema}
+Let $v_0$ be a maximal vector, and set $v_{-1}=0$ and $v_{i}=\frac{1}{i!}Y^iv_0$ for $i\ge 0$ then:
+\begin{enumerate}[label=(\alph*)]
+	\item $Hv_i = (\lambda - 2i)v_i$
+	\item $Yv_i = (i+1)v_{i+1}$
+	\item $Xv_i = (\lambda-i+1)v_{i-1}$ for $i\ge0$
+\end{enumerate}
+\end{lema}
+\begin{proof}
+	\begin{enumerate}[label=(\alph*)]
+		\item Follows directly from Lemma $2.3.1$
+		\item Is a consequence of the definition, in fact:
+		$$v_{i+1} = \frac{1}{(i+1)!}y^{i+1}v_0 = \frac{1}{i+1} Y\left(\frac{1}{i!}Y^i v_0\right) = \frac{1}{i+1} Yv_i$$
+		\item Since $v_0$ is maximal then $Xv_0=0$ and the result is valid, proceeding by induction:
+		\begin{align*}
+		Xv_i &= \frac{1}{i}X(Yv_{i-1})\\
+		iXv_i&= [X,Y]v_{i-1} + Y(Xv_{i-1})\\
+			 &= Hv_{i-1} + Y(Xv_{i-1})\\
+			 &= (\lambda-2(i-1))v_{i-1} + Y(\lambda - i + 2)v_{i-2}\\
+			 &= (\lambda-2(i-1))v_{i-1} + (\lambda - i + 2)(i-1)v_{i-1}\\
+			 &=  (\lambda - 2i + 2 + i\lambda - i^2 + 2i + i - 2)v_{i-1}\\
+			 &= i(\lambda-i+1)v_{i-1}
+		\end{align*}
+	\end{enumerate}
+\end{proof}\\
+Now if we consider $V$ to be irreducible, we can explicitly classify $V$ with respect to the $v_i$ which in turn are completely determined by $\lambda$.
+\begin{teo}
+If $V$ is irreducible, then the set of $\{v_i\}$ form a basis of $V$, $\lambda$ is a positive integer and the number of vectors $\{v_i\}$ is precisely $\lambda+1$
+\end{teo}
+\begin{proof}
+	Since each $v_i$ is an eigenvector of $H$ with different eigenvalues$(a)$, they are linearly independent.\\
+	The span of the set $\{v_i\}$ is closed under the action of $\g$, since this span is non-zero then it must be the whole $V$ since it is an irreducible module.\\
+	Now let $m$ be the largest value such that $v_m \not=0$ but $v_{m+1}=0$ (possible since $V$ is finite dimensional), then letting $i=m+1$ in $(c)$ we find:
+	$$Xv_{m+1} = (\lambda - (m+1)+1)v_m \iff 0 = (\lambda-m)v_m$$
+	And therefore $\lambda=m$, which is a positive integer, furthermore $\{v_0,v_1,\cdots,v_m\}$ is a basis of $V$, and therefore $\dim V = \lambda + 1$
+\end{proof}
+We can summarize a classification of every  $\gsl(2)$ module based on this theorem:
+\begin{teo}[Classification of $\gsl(2)$ modules]
+If $V$ is an irreducible module of $\gsl(2)$ of dimension $m+1$, then:
+\begin{enumerate}[label=(\alph*)]
+	\item $V=V_{-m} \oplus V_{-m+2} \oplus \cdots \oplus V_{m-2} \oplus V_m$, each with dimension one.
+	\item $V$ has a unique maximal weight and a unique maximal vector up to scalar multiples.
+	\item The $\gsl(2)$-action is defined by the formulas in Lemma $2.3.3$, in particular, there exists at most one irreducible module of $\gsl(2)$ of dimension $m$ up to isomorphism.
+\end{enumerate}
+\end{teo}
+Since every $\gsl(2)$ module is the sum of irreducible modules (Weyl's Theorem \ref{Weyl's Theorem}), then:
+\begin{corol}
+	Let $V$ be any finite-dimensional $\gsl(2,\F)$ module, then all the eigenvalues of $H$ on $V$ are integers and each occurs along with its negative an equal number of times. Moreover, in any decomposition of $V$ as irreducible sub-modules, the number of modules is $\dim(V_0)+\dim(V_1)$
+	\label{sl2modules}
+\end{corol}
+\begin{proof}
+	The first result is direct. Since every irreducible module is a sum of weight spaces with distance $2$ from each other, then each irreducible sub-module must have weight $0$ or $1$, but not both.
+\end{proof}

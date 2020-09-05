@@ -1,0 +1,39 @@
+%% TEOREMAS E OUTROS AMBIENTES
+
+%%%%% TEOREMAS
+\newtheorem{teo}{Theorem}[section]
+\newtheorem{corol}[teo]{Corolary}
+\newtheorem{ddefi}[teo]{Definition}
+\newenvironment{definicao} % quadrado 
+  {\begin{shaded} \begin{ddefi}\rm}{\end{ddefi} \end{shaded}}
+\newenvironment{defi} % sem quadrado s
+  {\begin{ddefi}}{\end{ddefi}}
+\newtheorem{prop}[teo]{Proposition}
+\newcounter{example}[section]
+\newenvironment{ex}[1][]{\refstepcounter{example}\par\medskip
+	\noindent \textbf{Example~\theexample. #1} \rmfamily}{\medskip}
+\newtheorem{propri}[teo]{Propriedade}
+\newtheorem{lema}[teo]{Lemma}
+\newtheorem{obss}[teo]{Observação}
+\newtheorem{obss1}[teo]{Observações}
+\newenvironment{obs}
+  {\begin{obss}\rm}{\end{obss}}
+  \newenvironment{observacoes}
+  {\begin{obss1}\rm}{\end{obss1}}
+\newtheorem{conj}[teo]{Conjectura}
+%\newcounter{exemplocount}[chapter]
+\newenvironment{exx}
+  {\vspace{0.5cm} \refstepcounter{teo} \noindent  \textbf{Exemplo \arabic{chapter}.\arabic{teo}}}{\vspace{0.2cm} }
+
+\theorembodyfont{\rm}
+
+
+
+% Demonstra��o (original hspace is 133mm)
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1:} }{\hfill $\Box$}
+
+
+
+
+
+

@@ -1,0 +1,113 @@
+\section{Root Decomposition}
+\subsection*{Orthogonality}
+Let $\g$ be a finite-dimensional semi-simple Lie Algebra over $\F$ algebraically closed with characteristic $0$.\\
+Fixing $\h$ a maximal toral subalgebra of $\g$, if $\g_\alpha = \{X \in \g | [H,X]=\alpha(H)x\}$ \text{ for all } $H \in \h$ \text{ and } $\alpha \in \h^*\}$ we'll call the subset of $\h^*$ such that $\g_\alpha \not=0$, except $0$ as $\Phi$ and its elements roots. \\
+Since the killing form restricted to $\h$ is non-degenerate, then for every $\alpha \in \h^*$ we can find some $T_\alpha \in \h$ that represents it, meaning $\alpha(H)=\kappa(T_\alpha,H)$.\\
+Reminding ourselves of the property of orthogonality between roots, meaning that if $\alpha+\beta \not=0$ for elements in $\h^*$ then $\kappa(\g_\alpha,\g_\beta)=0$.\\
+With this we can summarize the first properties of root decomposition:
+\begin{prop}
+	\begin{enumerate}[label=(\alph*)]
+		\item $\Phi$ spans $\h^*$
+		\item If $\alpha \in \Phi$ then $-\alpha \in \Phi$
+		\item Let $\alpha \in \Phi$, $X \in \g_\alpha$ and $Y \in \g_{-\alpha}$ then: $[X,Y]=\kappa(X,Y)T_\alpha$
+		\item If $\alpha \in \Phi$, then $[\g_\alpha,\g_{-\alpha}]$ is one dimensional
+		\item $\alpha(T_\alpha)=\kappa(T_\alpha,T_\alpha)\not=0$
+		\item If $\alpha \in \Phi$ and $X_\alpha \in \g_\alpha$ is any non-zero element, then there exists $Y_\alpha \in \g_\alpha$ such that $\{X_\alpha,[X_\alpha,Y_\alpha],Y_\alpha\}$ spans a three dimensional subalgebra of $\g$ isomorphic to $\gsl(2)$, call $[X_\alpha,Y_\alpha]=H_\alpha$
+		\item $H_\alpha = -H_{-\alpha} = \frac{2T_\alpha}{\kappa(T_\alpha,T_\alpha)}$ 
+	\end{enumerate}
+	\label{Orthogonality}
+\end{prop}
+\begin{proof}
+	\begin{enumerate}[label=(\alph*)]
+		\item If $\Phi$ fails to span $\h^*$, then by duality we get a non-zero element $H \in \h$ such that $\alpha(H)=0$ for all $\alpha \in \Phi$, but in that case for any $X_\alpha \in \g_\alpha$ this means $[H,X_\alpha]=\alpha(H)X_\alpha =0$.
+		But $[H,\h]=0$, and this implies that $H \in \z(\g)$, a contradiction
+		\item Otherwise, meaning that $\alpha \in \Phi$ but $-\alpha \not \in \Phi$, then there is not an element $\beta \in \Phi$ such that $\alpha + \beta = 0$, meaning that $\kappa(\g_\alpha,\g)=0$, contradicting the non-degeneracy of $\kappa$
+		\item Let $H \in \h$ be arbitrary, then:
+		\begin{align*}
+		\kappa(H,[X,Y]) &= \kappa([H,X],Y) = \alpha(H)\kappa(X,Y)=\kappa(H,T_\alpha)\kappa(X,Y)=\kappa(H,\kappa(X,Y)T_\alpha)\\
+		\kappa(H,[X,Y]-\kappa(X,Y)T_\alpha)&=0
+		\end{align*}
+		This in turn implies that $\h$ is orthogonal to $[X,Y]-\kappa(X,Y)T_\alpha$, forcing $[X,Y]=\kappa(X,Y)T_\alpha$ since $[X,Y] \in \g_0 = \h$ and $\kappa$ is non-degenerate in $\h$.
+		\item $(c)$ shows that $T_\alpha$ spans $[\g_\alpha,\g_{-\alpha}]$, provided it is not $0$, and this space can't be $0$ because otherwise $\kappa(\g_\alpha,\g_{-\alpha})=0$ and therefore $\kappa(\g_\alpha,\g_{-\alpha}=0)$
+		\item If $\alpha(T_\alpha)=0$ choose $X \in \g_\alpha$ and $Y_\alpha$ such that $\kappa(X,Y)=1$ (possible due to $(d)$), then the subspace $S$ spanned by ${X,T_\alpha,Y}$ satisfies $[X,Y]=T_\alpha$, $[X,T_\alpha]=0$ and $[Y,T_\alpha]=0$, therefore its a three dimensional solvable Lie Algebra, then $S \sim \ad S \subset \gl(\g)$. Then $\ad[S,S]$ is nilpotent and therefore $\ad T_\alpha$ is both semi-simple and nilpotent, implying that $\ad(T_\alpha)=0 \Rightarrow T_\alpha=0$, absurd. 
+		\item Let $H_\alpha = \frac{2T_\alpha}{\kappa(T_\alpha,T_\alpha)}$, then find $Y_\alpha \in \g_{-\alpha}$ such that $\kappa(X,Y) = \frac{2}{\kappa(T_\alpha,T_\alpha)}$ then $[X_\alpha,Y_\alpha] = \kappa(X,Y)T_\alpha = H_\alpha$.
+		Now $[H_\alpha,X_\alpha] = \alpha(H_\alpha)X_\alpha = \frac{2\alpha(T_\alpha)}{\kappa(T_\alpha,T_\alpha)}X_\alpha = 2X_\alpha $, and similarly for $[H,Y_\alpha]=-2Y_\alpha$.
+		\item Remember that $T_{-\alpha}$ is defined as the element that satisfies $\kappa(T_{-\alpha},H)=-\alpha(H)$ for any $H \i \h$, but $\kappa(-T_\alpha,H)=-\kappa(T_\alpha,H)=-\alpha(H)$, therefore $T_{\alpha}=-T_{-\alpha}$ and it follows that $H_{\alpha}=-H_{-\alpha}$
+		\end{enumerate}
+	\end{proof}
+\subsection*{Integrality}
+For each pair of roots $\alpha,-\alpha$ let $S_\alpha$ be a subalgebra isomorphic to $\gsl(2)$ constructed above. A lot of properties of its representations have been established, using those properties we can analyze some modules contained in $\g$, given rise to the following:
+\begin{prop}
+	Let $\alpha \in \Phi$ and $M_\alpha=\displaystyle\bigoplus_{c \in\F} \g_{c\alpha}$, then $M_\alpha$ is a $S_\alpha$-module and:
+	\begin{enumerate}[label=(\alph*)]
+		\item $\dim\g_\alpha = 1$
+		\item If $c\alpha$ is a root, then $c=\pm 1$.
+	\end{enumerate}
+	\label{IntegralityM}
+\end{prop}
+\begin{proof}
+	Since $[\g_{c\alpha},\g_{c'\alpha}]\subset \g_{(c+c')\alpha}$ and $S_\alpha \subset M_\alpha$ then $M_\alpha$ is a $S_\alpha$-module via the adjoint.\\
+	Now the weights of $H_\alpha$ in $M$ are $2c\alpha$ since $\alpha(H_\alpha)=2$ and $[H_\alpha,X] = c\alpha(H_\alpha)X$ for any $X \in \g_{c\alpha}$.\\
+	Now consider that $\ker \alpha$ is a sub-module of $M$ with codimension 1 in $\h$ complementary to $H_\alpha$, therefore the weight $0$ only occurs in $\ker \alpha$ and $S_\alpha$, but $S_\alpha$ is irreducible and therefore the only even weights in $M$ are $0,\pm 2$. This proves that twice a root can never be a root, but then half a root can't be a root either, therefore there's no weight $1$ in $M$. This in turn implies that $M=\ker \alpha \oplus S_\alpha$, and in particular $\dim\g_\alpha=1$ and that the only multiples of $\alpha$ which are roots are $\pm \alpha$.
+\end{proof}
+\begin{prop}
+	Let $\alpha,\beta \in \Phi$ such that $\beta \not= \pm \alpha$ and let:
+	$$K_\alpha(\beta) = \g_{\beta - r \alpha} \oplus \g_{\beta - (r-1)\alpha} \oplus \cdots \oplus \g_{\beta} \oplus \g_{\beta+1} \oplus \cdots \g_{\beta + q_\alpha}$$
+	Where $r$ is the biggest number such that $\beta - r\alpha$ is a root and $q$ is the biggest such that $\beta + q\alpha$ is a root. \\
+	Then $K_\alpha$ is a $S_\alpha$-module and :
+	\begin{enumerate}
+		\item $\beta(H_\alpha) \in \mathbb{Z}$ and $\beta-\beta(H_\alpha)\alpha \in \Phi$
+		\item If $i$ is such that $-r\le i \le q$ then $\beta + i \alpha \in \Phi$ and $\beta(H_\alpha) = r-q$
+	\end{enumerate}
+	\label{IntegralityK}
+\end{prop}
+\begin{proof}
+	Each root space is one dimensional, and none of the $\beta+i\alpha$ can equal $0$ since $\beta \not= \pm \alpha$ and no other multiple of $\alpha$ is a root.\\
+	Now if $X \in \g_{\beta+i\alpha}$ then $[H_\alpha,X]=(\beta+i\alpha)(H_\alpha)X = (\beta(H_\alpha)+2i)X$
+	And therefore the only distinct weights of $H_\alpha$ are $\beta(H_\alpha)+2i$, since all of those must be integers(Prop. \ref{sl2modules}), then $\beta(H_\alpha) \in \mathbb{Z}$. Obviously not both $0$ or $1$ can occurs as weights, and since every root space is one dimensional then $K_\alpha$ is irreducible ($\dim({K_\alpha}_0)+\dim({K_\alpha}_1)=1)$.\\
+	Since every weight occurs along with its negative, then:\\
+	$$\beta(H_\alpha)-2r=-(\beta(H_\alpha)+2q) \Rightarrow \beta(H_\alpha) = r-q$$
+\end{proof}
+\subsection*{Rationality}
+The killing form is non-degenerate and symmetric, furthermore its restriction to a maximal toral subalgebra is connected to integers in some way, we want to construct an inner product based in it.\\
+Let $(\gamma,\delta) = \kappa(T_\gamma,T_\delta)$ for all $\gamma,\delta \in \h^*$ and $\{\alpha_1,\cdots,\alpha_\ell\}$ a base consisting of roots, and let for any $\beta \in \h^*$, it's written in this basis as
+\begin{equation}
+ \beta = \sum_{i=1}^\ell c_i\alpha_i
+\end{equation}
+\begin{prop}
+If $\beta \in \delta$, then $c_i \in \mathbb{Q}$
+\end{prop}
+\begin{proof}
+We know that $$\beta(H_\alpha) = \kappa(T_\beta,H_\alpha) = \frac{2\kappa(T_\beta,T_\alpha)}{\kappa(T_\alpha,T_\alpha)} = \frac{2(\beta,\alpha)}{(\alpha,\alpha^)} \in \mathbb{Z}$$
+So using equation $(2.1)$ with this fact in mind we get:
+\begin{align}
+	\frac{2(\beta,\alpha_j)}{(\alpha_j,\alpha_j)} &= \sum_{i=1}^\ell c_i \frac{2(\alpha_j,\alpha_i)}{(\alpha_j,\alpha_j)}\\
+	\beta(H_{\alpha_j}) &= \sum_{i=1}^\ell c_i\alpha_i(H_{\alpha_j})
+\end{align}
+Therefore since this is a linear equation in $c_i$ with integer coefficients solvable in $\F$, then it's solvable in $\mathbb{Q}$, implying that $c_i \in \mathbb{Q}$.
+\end{proof}\\
+Let $E_\mathbb{Q}$ be the space spanned in $\mathbb{Q}$ by the roots, we just proved that $\dim(E_\mathbb{Q}) = \ell$ 
+Even more is true to this:
+\begin{prop}
+	The form $(,)$ is naturally extended to $E_\mathbb{Q}$ and is positive definite
+\end{prop}
+\begin{proof}
+	Notice that:
+	\begin{align*}
+		(\lambda,\mu) &= \kappa(T_\lambda,T_\mu) = \Tr(\ad T_\lambda\ad T_\mu) = \sum_{\alpha \in \Phi} \alpha(T_\lambda)\alpha(T_\mu)\\
+		&=\sum_{\alpha \in \Phi}(\alpha,\lambda)(\alpha,\mu)
+	\end{align*}
+	In particular $(\beta,\beta) = \sum (\alpha,\beta)^2$ 
+	Multiplying this relation by $\frac{4}{(\beta,\beta)^2}$ we get
+	$$ \frac{4}{(\beta,\beta)}=\sum_{\alpha \in \Phi}\left(\frac{2(\alpha,\beta)}{(\beta,\beta)}\right)^2 \in \mathbb{Z}$$
+	Therefore $(\beta,\beta) \in \mathbb{Q}$ and in turn, since $\frac{2(\alpha,\beta) }{(\beta,\beta)} \in \mathbb{Z}$ then $(\alpha,\beta) \in \mathbb{Q}$, proving that the form is well defined in $E_{\mathbb{Q}}$ now since $(\beta,\beta)=\sum (\alpha,\beta)^2$ it is positive definite as the sum of squares of rationals.
+\end{proof}
+\subsection*{Summary}
+Let $E$ be the real vector space extending the base field of $E_\mathbb{Q}$ from $\mathbb{Q}$ to $\mathbb{R}$, then the following properties are satisfied:
+\begin{enumerate}[label=(\alph*)]
+	\item $\Phi$ spans $E$ and $0$ does not belong to $\Phi$
+	\item If $\alpha \in \Phi$ then the only other multiple of $\alpha$ in $\Phi$ is $-\alpha$.
+	\item If $\alpha,\beta \in \Phi$ then $\displaystyle \beta - \frac{2(\beta,\alpha)}{(\alpha,\alpha)}\alpha \in \Phi$
+	\item If $\alpha,\beta \in \Phi$, then $\frac{2(\beta,\alpha)}{(\alpha,\alpha)} \in \mathbb{Z}$
+	\label{RootSystemLie}
+\end{enumerate}
