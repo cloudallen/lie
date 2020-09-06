@@ -5,7 +5,7 @@ We remind the three properties that define a module, $V$ is a vector space and $
 \begin{enumerate}[label=\Alph*.]
 	\item $X(v+w) = Xv+Xw$ 
 	\item $(X+Y)v = Xv + Yv$
-	\item $[X,Y]v = X(Yv) - Y(Xv)$´
+	\item $[X,Y]v = X(Yv) - Y(Xv)$
 \end{enumerate}
 Our first results focuses on the composition of different modules with respect to their vector space structure
 \begin{prop}
@@ -65,12 +65,10 @@ A linear transformation $T$ between modules $V$ and $W$ is said to be a module m
 	Therefore $Xv \in \ker T$ and the proof is done.
 \end{proof}
 \begin{defi}
-	Regarding the sub-structure of a particular module:
-\begin{itemize} 
-	\item A module $V$ is said to be irreducible if it has no proper and non-trivial sub-modules.
-	\item A module $V$ is said to be indecomposable if it can't be decomposed as a direct sum of any two of its proper sub-modules, that is if $V=M\oplus N$ for $M$ and $N$ sub-modules then $M=0$ or $N=0$.
-	\item A module $V$ is said to be reducible if it is not irreducible.
-\end{itemize}
+	Regarding the sub-structure of a particular module:\\
+	A module $V$ is said to be \textbf{irreducible} if it has no proper and non-trivial sub-modules.\\
+	A module $V$ is said to be \textbf{indecomposable} if it cannot be decomposed as a direct sum of any two of its proper sub-modules, that is if $V=M\oplus N$ for $M$ and $N$ sub-modules then $M=0$ or $N=0$.\\
+	A module $V$ is said to be \textbf{reducible} if it is not irreducible.
 \label{module-types}
 \end{defi}
 \subsection*{Initial Results on Representations}
@@ -84,14 +82,14 @@ A linear transformation $T$ between modules $V$ and $W$ is said to be a module m
 	In particular, if $V$ is one-dimensional then $\rho(\g) = 0$
 \end{proof}
 \begin{lema}[Schur's Lemma]
-	Let $V$ be a irreducible $\g$-module over an algebraically closed field $\F$ and $\rho:\g \rightarrow \gl(V)$ be the correspondent representation, where  then the only endomorphism that commutes with $\rho(\g)$ are the scalars
+	Let $V$ be a irreducible $\g$-module over an algebraically closed field $\F$ and $\rho:\g \rightarrow \gl(V)$ be the correspondent representation, then the only endomorphism that commutes with $\rho(\g)$ are the scalars
 	\label{Schur's Lemma}
 \end{lema}
 \begin{proof}
 	If $T$ be a non-trivial endomorphism that commutes with $\rho(\g)$, then $T$ is a module morphism, and therefore its kernel must be $0$ since it is a sub-module of $V$.\\
 	We also know that $T - \lambda I$ commutes with $\rho(\g)$ for all $\lambda \in \F$, therefore $T-\lambda I$ is either $0$ or an isomorphism, but since the field is algebraically closed, $T$ has an eigenvalue, and in that case the kernel can't be $0$, therefore $T-\lambda I = 0 \Rightarrow T=\lambda I$ for some $\lambda$.
 \end{proof}\\
-Now we'll proceed to introduce the idea of a special element with respect to a representation, classically called the Casimir element.\\
+Now we will proceed to introduce the idea of a special element with respect to a representation, classically called the Casimir element.\\
 Let $\beta:\g \times \g \rightarrow \F$ be any associative non-degenerate form, then for every basis $A=\{X_1,\cdots,X_n\}$ of $\g$ there exists a basis $B=\{Y_1,\cdots,Y_n\}$ such that $\beta(X_i,Y_j)=\delta_{ij}$. In which case writing $[X,X_i] = \sum_j a_{ij} X_j$ and $[X,Y_i]=\sum_j b_{ij} Y_j$. Note that
 $$a_{ik} = \sum_{j=1}^n a_{ij}\delta_{jk} = \sum_{j=1}^n a_{ij} \beta(X_j,Y_k) =\beta([X,X_i],Y_k) = -\beta (X_i,[X,Y_k]) = -b_{ki} $$
 Now if $\rho:\g \rightarrow \gl(V)$ is a one-to-one representation of a semi-simple $\g$, then the trace-form $\beta(X,Y)=\Tr(\rho(X)\rho(Y))$ satisfies the condition since $\rho(\g) \sim \g$ and $\text{rad} \beta$ is an ideal of $\g$ therefore $\beta$ is non-degenerate.\\
@@ -101,11 +99,10 @@ One of the important properties of $c_\rho$ is that it commutes with $\rho(\g)$,
 Xc_\rho - c_\rho X &= \sum_{i=1}^n XX_iY_i - X_iY_iX = \sum_{i=1}^nXX_iY_i - X_iXY_i + X_iXY_i - X_iY_iX  \\
 &=  \sum_{i=1}^n [X,X_i]Y_i + X_i[X,Y_i] = \sum_{i,j=1}^n a_{ij}X_jY_i + \sum_{i,j=1}^n b_{ij}X_iY_j = 0
 \end{align*}
-In case of a representation that is not one-to-one, we can consider another Lie Algebra $\g'=\g/\ker \rho$ and a new representation $\rho': \g' \Rightarrow \gl(V)$ that satisfies the given conditions, since $\rho(\g)=\rho(\g')$ then $c_\rho'$ still commutes with $\rho(\g)$.
-With this discussion we can summarize the properties of the Casimir element of representation:
+In case of a representation that is not one-to-one, we can consider another Lie Algebra $\g'=\g/\ker \rho$ and a new representation $\rho': \g' \rightarrow \gl(V)$ that satisfies the given conditions, since $\rho(\g)=\rho(\g')$ then $c_\rho'$ still commutes with $\rho(\g)$.
+With this discussion we can summarize the properties of the Casimir element of a representation:
 \begin{prop}
-Given finite-dimensional semi-simple Lie Algebra $\g$, and a representation $\rho:\g\rightarrow \gl(V)$, then there exists an element $c_\rho \in \gl(V)$ that commutes with $\rho(\g)$ and has non-zero trace.\\
-In case $\rho$ is irreducible, then $c_\rho$ acts as a scalar(Schur's Lemma).
+Given finite-dimensional semi-simple Lie Algebra $\g$, and a representation $\rho:\g\rightarrow \gl(V)$, then there exists an element $c_\rho \in \gl(V)$ that commutes with $\rho(\g)$ and has non-zero trace.Moreover, if $\rho$ is irreducible, then $c_\rho$ acts as a scalar(Schur's Lemma).
 \end{prop}
 \subsection*{Weyl's Theorem of Irreducibility}
 \begin{teo}
