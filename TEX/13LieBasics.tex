@@ -65,12 +65,12 @@ A useful way to think of representations is thinking them as linear actions that
 	\label{gmod}
 \end{defi}
 \begin{prop}
-	Every $\g$-mod $(V,\cdot)$ defines a representation and every representation $\rho$ defines a $\g$-mod in such a way that $a \cdot v = \rho(a)v$ for every $a \in \g$ and $v \in V$
+	Every $\g$-module $(V,\cdot)$ defines a representation and every representation $\rho$ defines a $\g$-module in such a way that $a \cdot v = \rho(a)v$ for every $a \in \g$ and $v \in V$
 	\label{modequivrep}
 \end{prop}
 \begin{proof}
 	The result is trivial, but for completeness:\\
-	Given $V$ a $\g$-mod, then define $\rho(a) \in \gl(V)$ such that $\rho(a): v \mapsto a \cdot v$, it is in $\gl(V)$ if and only if the action satisfies $(a)$, it is a linear morphism if and only if $(b)$ and it satisfies $\rho([X,Y])=\rho(X)\rho(Y)-\rho(Y)\rho(X)$ if and only if $(c)$
+	Given $V$ a $\g$-mod, then define $\rho(a) \in \gl(V)$ such that $\rho(a): v \mapsto a \cdot v$, it is in $\gl(V)$ if and only if the action satisfies $(a)$, it is a q linear morphism if and only if $(b)$ and it satisfies $\rho([X,Y])=\rho(X)\rho(Y)-\rho(Y)\rho(X)$ if and only if $(c)$
 \end{proof}\\
 Now we will move on to the first important results of Lie Theory, and for that we will define two series of ideals that play an important role. But before that, some clarification on notation:\\
 Given subsets $\h$ and $k$ of a Lie Algebra $\g$ , we will define $[\h,k]$ as the set of all products from $\h$ and $k$, in case $\h$ and $k$ are vector spaces the order is irrelevant because of skew-symmetry and the resulting set is going to be a vector space by the bilinearity of the Lie Bracket . $$[\h,k] = \{[H,K] \in \g | H \in \h, K \in k\}$$
@@ -108,11 +108,11 @@ Some properties of these series are directly proven:
 \end{proof}\\
 Some type of algebras are classically special in the theory, with the ideal series being defined, then:
 \begin{defi}
-\begin{itemize}
+
  An algebra is called \textbf{nilpotent} if $\g^n = 0$ for some $n$.\\
  An algebra is called \textbf{solvable} if $\g^{(n)}=0$ for some $n$.\\
  An algebra is \textbf{semi-simple} if it has no non-zero proper solvable ideals.\\
  An algebra is \textbf{simple} if it has no non-zero proper ideals.
-\end{itemize}
+
 \label{algebratypes}
 \end{defi}
