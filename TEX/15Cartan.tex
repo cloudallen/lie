@@ -4,7 +4,7 @@ Here we will consider a finite dimensional vector space $V$ over an algebraicall
 	If $X \in \gl(V)$ is such that its Jordan decomposition(Proposition \ref{jordandecom}) is $X=S+N$ then $\ad X = \ad S + \ad N$ is the Jordan decomposition of $\ad X$ in $\gl(\gl(V))$.
 \end{prop}
 \begin{proof}
-	A basis of $\gl(V)$ is $e_{ij}$ with respect to a basis such that $S= \text{diag}{\lambda_i}$ then $[S,e_{ij}]=(\lambda_i-\lambda_j)e_{ij}$, therefore $\ad(S)$ is semi-simple, if $N$ is nilpotent then $\ad(N)$ is nilpotent (Proposition \ref{jordandecom}). Since the adjoint is a representation, then $[\ad S,\ad N]_{\gl(\gl(V))} = \ad[S,N] = 0$ and then the result follows from the uniqueness of the Jordan Decomposition in $\gl(\gl(V))$.
+	A basis of $\gl(V)$ is $e_{ij}$ with respect to a basis such that $S= \text{diag}{\lambda_i}$ then $[S,e_{ij}]=(\lambda_i-\lambda_j)e_{ij}$, therefore $\ad(S)$ is semi-simple, if $N$ is nilpotent then $\ad(N)$ is nilpotent (Proposition \ref{propadnilpotency}). Since the adjoint is a representation, then $[\ad S,\ad N]_{\gl(\gl(V))} = \ad[S,N] = 0$ and then the result follows from the uniqueness of Jordan Decomposition in $\gl(\gl(V))$.
 \end{proof}
 \begin{teo}[Cartan's Lemma]
 	Let $A \subset B$ be two subspaces of $\gl(V)$ with $\dim V < \infty$ over a field with characteristic $0$, then set $M=\{X \in \gl(V)\ |\ [X,B]\subset A\}$. If $X \in M$ is such that $\Tr(XY)=0$ for all $Y \in M$. Then $X$ is nilpotent.
@@ -45,23 +45,23 @@ With this in mind, define the natural bilinear form in Finite Dimensional Lie Al
 \end{defi}
 With this in mind we can make the first step to classify semi-simple finite dimensional Lie Algebras.
 \begin{teo}
-Let $\g$ be a finite dimensional Lie Algebra over $\F$ algebraic closed and over a field of characteristic $0$. Then the following are equivalent:
-\begin{enumerate}
-	\item $\g$ is semisimple.
-	\item $\g$ has no non-zero abelian ideals.
-	\item The Killing Form $\kappa(X,Y)=\Tr(\ad(X)\ad(Y))$ is non-degenerate
-	\item $\g$ is a unique sum of simple ideals $\g_i$.
-\end{enumerate}
+	Let $\g$ be a finite dimensional Lie Algebra over $\F$ algebraic closed and over a field of characteristic $0$. Then the following are equivalent:
+	\begin{enumerate}
+		\item $\g$ is semi-simple.
+		\item $\g$ has no non-zero abelian ideals.
+		\item The Killing Form $\kappa(X,Y)=\Tr(\ad(X)\ad(Y))$ is non-degenerate
+		\item $\g$ is a unique sum of simple ideals $\g_i$.
+	\end{enumerate}
 \end{teo}
 \begin{proof}\\
-$1 \Rightarrow 2$, to prove this we will use a simple lemma, let $\h \ideal \g$, then $\h^{(k)}$ is an ideal of $\g$ for all $k$:\\
-By induction, basis case $k=1$ is the hypothesis, let $[X,Y] \in \h^{n}$, with $X,Y \in \h^{(n-1)}$ and $Z \in \g$, then:
-$$[Z,[X,Y]] = -[X,[Y,Z]]-[Y,[Z,X]] = [[Y,Z],X] + [[Z,X],Y]$$
-and by induction $[Y,Z],[Z,X]\in \h^{(n-1)}$ therefore $[Z,[X,Y]] \in [\h^{(n-1)},\h^{n-1}] = \h^{(n)}$.\\
-Finally if $\h$ is solvable with $\h^{(n)}=0$, then $\h^{(n-1)}$ is abelian, and by the previous discussion, it is an abelian ideal of $\g$.\\
-$2 \Rightarrow 3$, we will prove a more general result, that any abelian ideal contains the radical of the Killing form. In fact let $\h$ be an abelian ideal, then for all $X \in \h$ and $Y \in \g$ we get $\ad X \ad Y : \g \rightarrow \h$, which in turn implies that $(\ad X \ad Y)^2 : \g \rightarrow [\h,\h] = 0$, and then the operator $\ad X \ad Y$ is nilpotent, which implies that it has trace $0$, proving that $\kappa(X,Y)=0$ for all $X \in \h$ and $Y \in \g$, then by Cartan's lemma $\h$ is solvable and therefore if the Killing form has a non-zero radical then it has an abelian ideal.\\
-$3 \Rightarrow 4$, since $\kappa$ is a non-degenerate bilinear form, given an ideal $\h$ let $$\h^\perp = \{X \in \g | \kappa(X,Y)=0 \text{ for all } Y \in \h\}$$ we get $\g = \h \oplus \h^\perp$, $\h^\perp$ being an ideal of $\g$ by associativity, in fact given $X\in \h^\perp$ and $Z \in \g$ then for all $Y \in \h$ we get: $\kappa([X,Z],Y) = \kappa(X,[Z,Y])=0$ since $\h$ is an ideal.\\
-With this, we proceed the proof of existence. If $\g$ is simple, then $\g$ is the only ideal, and therefore it's done, otherwise, $\g$ has an ideal $\h$, and therefore $\g = \h \oplus \h^\perp$, $\h^\perp$ being a non-zero ideal of $\g$, the result follows by doing the same argument for $\h$ and $\h^\perp$ and from the fact that $\g$ is finite-dimensional.\\
-To prove uniqueness, assume the existence of a decomposition $\g = \bigoplus \g_i$, and let $\h$ be any simple ideal of $\g$, then from the fact that $\h$ is an ideal $[\g,\h]$ is an ideal contained in $\h$ and it is nonzero because otherwise $\h\subset \z(\g)=0$, and since $\h$ is simple then $[\g,\h]=\h$. On the other hand $[\g,\h]=\bigoplus[\g_i,\h]$, but since $[\g,\h]=\h$ is simple, then all terms are $0$ except one, proving that $\h=\g_j$ for some $j$.\\
-$4 \Rightarrow 1$ Let $\g= \bigoplus_{i \in I} \g_i$ be the decomposition of $\g$ in simple ideals, then let $\h$ be any ideal of $\g$, therefore $[\g,\h] = \bigoplus_{i \in I} [\g_i,\h]$, but for any specific $i$, then $[\g_i,\h]\ideal \g_i$, therefore it's either $0$ or $\g_i$, implying that $\h$ is a sum of $\g_i$, when $i$ is running on a subset of $I$, the result follows from induction on the size of the decomposition, since when $\g$ is simple, then the ideal can't be solvable.
+	$1 \Rightarrow 2$, to prove this we will use a simple lemma, let $\h \ideal \g$, then $\h^{(k)}$ is an ideal of $\g$ for all $k$:\\
+	By induction, basis case $k=1$ is the hypothesis, let $[X,Y] \in \h^{n}$, with $X,Y \in \h^{(n-1)}$ and $Z \in \g$, then:
+	$$[Z,[X,Y]] = -[X,[Y,Z]]-[Y,[Z,X]] = [[Y,Z],X] + [[Z,X],Y]$$
+	and by induction $[Y,Z],[Z,X]\in \h^{(n-1)}$ therefore $[Z,[X,Y]] \in [\h^{(n-1)},\h^{n-1}] = \h^{(n)}$.\\
+	Finally if $\h$ is solvable with $\h^{(n)}=0$, then $\h^{(n-1)}$ is abelian, and by the previous discussion, it is an abelian ideal of $\g$.\\
+	$2 \Rightarrow 3$, we will prove a more general result, that any abelian ideal contains the radical of the Killing form. In fact let $\h$ be an abelian ideal, then for all $X \in \h$ and $Y \in \g$ we get $\ad X \ad Y : \g \rightarrow \h$, which in turn implies that $(\ad X \ad Y)^2 : \g \rightarrow [\h,\h] = 0$, and then the operator $\ad X \ad Y$ is nilpotent, which implies that it has trace $0$, proving that $\kappa(X,Y)=0$ for all $X \in \h$ and $Y \in \g$, then by Cartan's lemma $\h$ is solvable and therefore if the Killing form has a non-zero radical then it has an abelian ideal.\\
+	$3 \Rightarrow 4$, since $\kappa$ is a non-degenerate bilinear form, given an ideal $\h$ let $$\h^\perp = \{X \in \g | \kappa(X,Y)=0 \text{ for all } Y \in \h\}$$ we get $\g = \h \oplus \h^\perp$, $\h^\perp$ being an ideal of $\g$ by associativity, in fact given $X\in \h^\perp$ and $Z \in \g$ then for all $Y \in \h$ we get: $\kappa([X,Z],Y) = \kappa(X,[Z,Y])=0$ since $\h$ is an ideal.\\
+	With this, we proceed the proof of existence. If $\g$ is simple, then $\g$ is the only ideal, and therefore it's done, otherwise, $\g$ has an ideal $\h$, and therefore $\g = \h \oplus \h^\perp$, $\h^\perp$ being a non-zero ideal of $\g$, the result follows by doing the same argument for $\h$ and $\h^\perp$ and from the fact that $\g$ is finite-dimensional.\\
+	To prove uniqueness, assume the existence of a decomposition $\g = \bigoplus \g_i$, and let $\h$ be any simple ideal of $\g$, then from the fact that $\h$ is an ideal $[\g,\h]$ is an ideal contained in $\h$ and it is nonzero because otherwise $\h\subset \z(\g)=0$, and since $\h$ is simple then $[\g,\h]=\h$. On the other hand $[\g,\h]=\bigoplus[\g_i,\h]$, but since $[\g,\h]=\h$ is simple, then all terms are $0$ except one, proving that $\h=\g_j$ for some $j$.\\
+	$4 \Rightarrow 1$ Let $\g= \bigoplus_{i \in I} \g_i$ be the decomposition of $\g$ in simple ideals, then let $\h$ be any ideal of $\g$, therefore $[\g,\h] = \bigoplus_{i \in I} [\g_i,\h]$, but for any specific $i$, then $[\g_i,\h]\ideal \g_i$, therefore it's either $0$ or $\g_i$, implying that $\h$ is a sum of $\g_i$, when $i$ is running on a subset of $I$, the result follows from induction on the size of the decomposition, since when $\g$ is simple, then the ideal can't be solvable.
 \end{proof}
