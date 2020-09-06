@@ -1,5 +1,5 @@
 \section{Axiomatic}
-We want to study Root Systems as appeared on Lie Algebras on their own, for such we are gonna define one as something that satisfies the conditions on the Summary portion of Section 2.4 .\\
+We want to study root systems as appeared on Lie algebras on their own, for such we are gonna define one as something that satisfies the conditions on the Summary in Section 2.4 .\\
 \begin{defi}[Root System]
 Given an Euclidean Space $E$ with inner product denoted by $\langle\ , \  \rangle$ and a finite subset $\Phi \subset E$, then the pair $(E,\Phi)$ is said to be a Root System if:
 \begin{enumerate}
@@ -23,7 +23,7 @@ Axiom $4.$ allows us to deduce some simple integral restrictions to a root syste
 \begin{prop}
 	Let $\alpha,\beta \in \Phi$ with $\|\beta\|\ge \|\alpha\|$, denoting by $\theta$ the angle between then and the Cartan product is restricted to those in the following table:\\
 	\begin{table}[ht]
-		\caption{Possible Values of the Cartan product}
+		\caption{Possible values of the Cartan product}
 		\begin{center}
 				\begin{tabular}{|c|c|c|}
 					\hline
@@ -56,8 +56,8 @@ An important corollary of this restriction is as follows:
 \end{corol}
 \begin{proof}
 	Since $\langle \alpha, \beta \rangle$ is positive then Table \ref{Cartan} shows that either $\cartan{\alpha}{\beta}=1$ or $\cartan{\beta}{\alpha}=1$.\\
-	$$\cartan{\alpha}{\beta}=1 \Rightarrow s_\beta(\alpha) = \alpha - \beta$$
-	Which implies that $\alpha-\beta$ is a root (Axiom 3.)
+	$$\cartan{\alpha}{\beta}=1 \Rightarrow s_\beta(\alpha) = \alpha - \beta,$$
+	which implies that $\alpha-\beta$ is a root (Axiom 3.)
 	And if $\cartan{\beta}{\alpha}=1$ then $\beta-\alpha$ is a root and therefore $-(\beta-\alpha)=\alpha-\beta$ is a root (Axiom 1.).\\
 	If $\langle \alpha,\beta \rangle$ is negative, then $\langle \alpha,-\beta \rangle $ is positive and therefore $\alpha-(-\beta) = \alpha+\beta$ is a root.
 \end{proof}
@@ -86,9 +86,13 @@ We proceed in steps:
 	Suppose not, then let $\{r_\alpha\}$ be such that $\sum_{\alpha \in \Delta} r_\alpha \alpha = 0$, divide this sum in the case in which $r_\alpha > 0$ (call it $\Delta_1$) and $r_\alpha<0$(call it $\Delta_2$), then:
 	$$\sum_{\alpha \in \Delta_1}r_\alpha \alpha = \sum_{\beta \in \Delta_2}-r_\beta \beta = \epsilon \not=0$$
 	But therefore $\langle \epsilon,\epsilon\rangle=\displaystyle\sum_{\alpha,\beta} -r_\alpha r_\beta\langle \alpha,\beta\rangle > 0$ bu $r_\alpha>0$,$r_\beta <0$ and $\langle \alpha, \beta \rangle \le 0$, a contradiction.\\
-	\textbf{Remark:} $4.$ Implies that any set in an euclidean space that are simultaneously non-acute are linearly independent.
+
 \end{enumerate}
-\end{proof}\\
+\end{proof}
+\begin{remark}
+	Part 4. of the proof Theorem \ref{basetheo} implies that any set in an euclidean space that are satisfy pairwise $\langle \alpha,\beta\rangle < 0$ are linearly independent.
+	\label{obtuserem}
+\end{remark}
 From this point forward we fix a basis $\Delta$ and call its elements simple.
 \begin{lema}
 	If $\alpha$ is a positive root but not simple, then $\alpha-\beta$ is a positive root for some $\beta \in \Delta$.\\
@@ -96,7 +100,7 @@ From this point forward we fix a basis $\Delta$ and call its elements simple.
 	\label{partialsum}
 \end{lema}
 \begin{proof}
-	If $(\alpha,\beta)\le 0$ for every $\beta \in \Delta$ then the remark in Theorem \ref{basetheo} would apply and $\Delta \cup \{\alpha\}$ would be linearly independent, which is absurd.Therefore there exists a $\beta \in \Delta$ such that $\langle \alpha,\beta \rangle > 0$ and then $\alpha-\beta \in \Phi$, positive because the uniqueness in the decomposition of $\alpha$ imply that $\alpha = \sum_\Delta k_\gamma \gamma$ with some $k_\gamma > 0$ for $\gamma \not=\beta$, and subtracting $\beta$ would not change this coefficient.
+	If $\langle \alpha,\beta\rangle \le 0$ for every $\beta \in \Delta$ then Remark \ref{obtuserem}  would apply and $\Delta \cup \{\alpha\}$ would be linearly independent, which is absurd. Therefore there exists a $\beta \in \Delta$ such that $\langle \alpha,\beta \rangle > 0$ and then $\alpha-\beta \in \Phi$, positive because the uniqueness in the decomposition of $\alpha$ imply that $\alpha = \sum_\Delta k_\gamma \gamma$ with some $k_\gamma > 0$ for $\gamma \not=\beta$, and subtracting $\beta$ would not change this coefficient.
 \end{proof}
 \begin{lema}
 	Let $\alpha$ be a simple root, then $s_\alpha$ permutes all positive roots except $\alpha$
