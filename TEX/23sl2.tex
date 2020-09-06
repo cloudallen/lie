@@ -1,4 +1,4 @@
-\section{Representations of $\gsl(2)$}
+\section{Finite Dimensional Representations of $\gsl(2)$}
 Considering the $\gsl(2,\F)$ Lie Algebra over an algebraically closed field with characteristic $0$, a traditional basis considered of this algebra as a matrix algebra is the following:
 $$X = \begin{pmatrix}
 0 & 1 \\
@@ -10,11 +10,11 @@ $$X = \begin{pmatrix}
 0 & 0 \\
 1 & 0 
 \end{pmatrix}$$
-Calculating the commutators in this algebra directly, one can easily find the following relations:
+The commutators in this algebra satisfy the following relations:
 $$[X,Y]=H, \ \ [H,X]=2X, \ \ [H,Y]=-2Y$$
 Considering the fact that $H$ is diagonal and that the preservation of the Jordan Decomposition implies that $H$ acts diagonally in any $\g$-mod $V$( Proposition \ref{PreservationOfAbsJordan}). Because of this, one can decompose $V$ as a sum of eigenspaces with respect to $H$, letting $V_\lambda = \{v \in V|Hv=\lambda v\}$ then if we assume $V$ to be finite-dimensional $V=\displaystyle\bigoplus_{\lambda \in \F} V_\lambda$. Whenever $V_\lambda \not=0$ we call $\lambda$ a weight and we call $V_\lambda$ a weight space.\\
 \begin{lema}
-	If $v \in V_\lambda$ then $Xv \in V_{\lambda+2}$ and $Yv \in V_{\lambda-2}$
+	If $v \in V_\lambda$, then $Xv \in V_{\lambda+2}$ and $Yv \in V_{\lambda-2}$
 \end{lema}
 \begin{proof}
 	Since $V$ is a $\g$-mod then $[A,B]v = A(Bv)-B(Av)$ for any $v \in V$ and $A,B \in \g$, therefore:
@@ -23,7 +23,7 @@ Considering the fact that $H$ is diagonal and that the preservation of the Jorda
 \end{proof}\\
 Since $V$ is finite-dimensional, we know that there exists some $\lambda$ in such a way that $V_\lambda\not=0$ such that $V_{\lambda+2}=0$, we will call one of these weights maximal and any vector in $V_\lambda$ as a maximal vector. One direct consequence of this definition is:
 \begin{prop}
-If $v$ is maximal vector then $Xv=0$
+If $v$ is maximal vector, then $Xv=0$
 \end{prop}
 We can determine the action of $\g$ in a special subset of vectors, inspired by the idea of determining the action of $X$ by the action of $Y$:
 \begin{lema}
@@ -38,7 +38,7 @@ Let $v_0$ be a maximal vector, and set $v_{-1}=0$ and $v_{i}=\frac{1}{i!}Y^iv_0$
 	\begin{enumerate}[label=(\alph*)]
 		\item Follows directly from Lemma $2.3.1$
 		\item Is a consequence of the definition, in fact:
-		$$v_{i+1} = \frac{1}{(i+1)!}y^{i+1}v_0 = \frac{1}{i+1} Y\left(\frac{1}{i!}Y^i v_0\right) = \frac{1}{i+1} Yv_i$$
+		$$v_{i+1} = \frac{1}{(i+1)!}y^{i+1}v_0 = \frac{1}{i+1} Y\left(\frac{1}{i!}Y^i v_0\right) = \frac{1}{i+1} Yv_i.$$
 		\item Since $v_0$ is maximal then $Xv_0=0$ and the result is valid, proceeding by induction:
 		\begin{align*}
 		Xv_i &= \frac{1}{i}X(Yv_{i-1})\\
@@ -47,7 +47,7 @@ Let $v_0$ be a maximal vector, and set $v_{-1}=0$ and $v_{i}=\frac{1}{i!}Y^iv_0$
 			 &= (\lambda-2(i-1))v_{i-1} + Y(\lambda - i + 2)v_{i-2}\\
 			 &= (\lambda-2(i-1))v_{i-1} + (\lambda - i + 2)(i-1)v_{i-1}\\
 			 &=  (\lambda - 2i + 2 + i\lambda - i^2 + 2i + i - 2)v_{i-1}\\
-			 &= i(\lambda-i+1)v_{i-1}
+			 &= i(\lambda-i+1)v_{i-1}.
 		\end{align*}
 	\end{enumerate}
 \end{proof}\\
