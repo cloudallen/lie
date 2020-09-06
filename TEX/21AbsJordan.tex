@@ -1,5 +1,5 @@
 \section{Abstract Jordan Decomposition}
-There is a natural way to extend the Jordan decomposition of finite-dimensional operators to a given semi-simple Lie Algebra by the adjoint representation, the main idea is proving the existence of elements in a Lie Algebra that satisfy the conditions of the decomposition.\\
+There is a natural way to extend the Jordan decomposition of finite-dimensional operators to a given semi-simple Lie algebra by the adjoint representation, the main idea is proving the existence of elements in a Lie algebra satisfying the conditions of the decomposition.\\
 \begin{lema}
 Every derivation in a semi-simple Lie Algebra is inner, meaning that if $D$ is a derivation then there exists $Y \in \g$ such that $D=\ad(Y)$
 \label{InnerDerivations}
@@ -13,11 +13,11 @@ Then:
 &= \Tr(E\ad(X)\ad(Z) - \ad(X)E\ad(Z)) = \Tr(E\ad[X,Z])\\
 &= 0
 \end{align*}
-Therefore since $Z$ is arbitrary $EX=0$ for any $X$ which implies that $E=0$, finally $D=\ad(Y)$
+Therefore since $Z$ is arbitrary $EX=0$ for any $X$ which implies that $E=0$, finally $D=\ad(Y)$.
 \end{proof}
 \begin{lema} 
 	If $D$ is a derivation and $\lambda,\mu\in \F$ then for every $X,Y \in \g$:
-	$$(D-(\lambda+\mu)I)^n[X,Y] = \sum_{i=0}^n {n \choose i}[(D-\lambda I)^{n-i}X,(D-\mu I)^iY]$$
+	$$(D-(\lambda+\mu)I)^n[X,Y] = \sum_{i=0}^n {n \choose i}[(D-\lambda I)^{n-i}X,(D-\mu I)^iY].$$
 	\label{LeibnizProductFormula}
 \end{lema}
 \begin{proof}
@@ -25,7 +25,7 @@ Therefore since $Z$ is arbitrary $EX=0$ for any $X$ which implies that $E=0$, fi
 	\begin{align*}
 	(D-(\lambda+\mu)I)[A,B] &= D[A,B] - (\lambda + \mu)[A,B] \\ 
 	&= [DA,B] + [A,DB] - [\lambda A,B] - [A,\mu B]\\
-	&= [(D-\lambda I)A,B] + [A,(D-\mu I)B] 
+	&= [(D-\lambda I)A,B] + [A,(D-\mu I)B].
 	\end{align*}
 	\begin{align*}
 	(D-(\lambda + \mu)I)
@@ -34,7 +34,7 @@ Therefore since $Z$ is arbitrary $EX=0$ for any $X$ which implies that $E=0$, fi
 	&+\sum_{i=0}^n {n \choose i}[(D-\lambda I)^{n-i}X,(D-\mu I)^{i+1}Y]\\
 	&=\sum_{i=1}^{n} \left({n \choose {i}}[(D-\lambda I)^{n+1-i},(D-\mu I )^i Y]\right) + [(D-\lambda I)^{n+1}X,Y]\\
 	&+\sum_{i=1}^{n}\left({n \choose i-1}[(D- \lambda I)^{n+1-i},(D-\mu I)^i Y] \right) + [X,(D- \mu I)^{n+1}Y]\\
-	&= \sum_{i=0}^{n+1}{{n+1}\choose i}[(D-\lambda I)^{n+1-i}X,(D-\mu I)^i Y]
+	&= \sum_{i=0}^{n+1}{{n+1}\choose i}[(D-\lambda I)^{n+1-i}X,(D-\mu I)^i Y].
 	\end{align*}
 \end{proof}
 \begin{corol}
@@ -42,12 +42,12 @@ Therefore since $Z$ is arbitrary $EX=0$ for any $X$ which implies that $E=0$, fi
 \end{corol}
 \begin{proof}
 	Let $\g = \displaystyle\bigoplus_{\alpha \in \F} \g_\alpha$ be the generalized eigenspace space decomposition of $\g$, then the formula above shows that $[\g_\alpha,\g_\beta] \subset \g_{\alpha+\beta}$, and therefore if $X \in \g_\alpha$ and $Y \in \g_\beta$ then:
-	$$S[X,Y] = (\alpha+\beta)[X,Y] = \alpha[X,Y]+\beta[X,Y] = [SX,Y]+[X,SY]$$
+	$$S[X,Y] = (\alpha+\beta)[X,Y] = \alpha[X,Y]+\beta[X,Y] = [SX,Y]+[X,SY].$$
 	And therefore $S$ is a derivation since $\g$ is the sum of eigenspaces, it follows that $N=D-S$ is a derivation.
 \end{proof}
 \begin{prop}
 	For every $X \in \g$ there exists unique $S,N \in \g$ satisfying the following conditions:
-	\begin{enumerate}[label=\Alph*.]
+	\begin{enumerate}[label=\alph*)]
 		\item $X=S+N$
 		\item $\ad\  S$ is diagonizable and $\ad\  N$ is nilpotent
 		\item $[S,N]=0$
