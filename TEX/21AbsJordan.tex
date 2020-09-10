@@ -64,3 +64,11 @@ Finally, since $[\ad(S),\ad(N)]=0$ then $\ad[S,N]=0$ and therefore $[S,N]=0$.
 	In particular the representation of any semi-simple element is semi-simple and of every nilpotent element is nilpotent.
 	\label{PreservationOfAbsJordan} 
 \end{prop}
+\begin{proof}
+	Let's prove that given a semi-simple $\g \subset \gl(V)$ then the abstract and usual Jordan decomposition coincide, which reduces to proving that $\g$ contains the usual semi-simple and nilpotent parts of all its elements because both decompositions are unique.\\
+	If $X \in \g$ is an arbitrary element, with usual Jordan decomposition given by $X=X_S+X_N$ in $\gl(V)$.If for a subspace $W$ of $V$ we have: $X(W)\subset W$ then $X_S(W)$ and $X_N(W)$ are also contained in $W$ (Proposition\ref{jordandecom}C).\\
+	If $W$ is a sub-module of $V$, let $\g_W = \{Y \in \gl(V)|Y(W)\subset W \text{ and } \Tr(Y|_{W})=0\}$, for example $\g_V = \gsl(V)$. Let $\tilde{\g}=\displaystyle\bigcap_{W\le V} (N_{\gl(V)}(\g) \cap \g_W)$ where $N_{\gl(V)}(\g) = \{Y \in \gl(V)| [Y,\g]\subset \g\}$ we know that $\g\subset \tilde{\g}$ since $W$ is a sub-module and every element in $\g$ is a commutator $\g=[\g,\g]$ meaning that its trace is $0$`.\\
+	For any $X \in \g$ then $X_S,X_N \in \tilde{\g}$ since their trace has to be $0$ in any $W\le V$ and they preserve $W$, now it remains to prove that $\g=\tilde{\g}$ to prove our result.\\
+	Since $\tilde{\g}$ is a finite dimensional $\g$-module then the inclusion $\g \subset \tilde{\g}$ allows us to write $\tilde{\g} = \g \oplus M$. $[\g,\tilde{\g}]\subset \g$(Theorem $\ref{Weyl's Theorem}$). Finally let $W$ be an irreducible sub-module of $V$, then the fact that $[\g,\tilde{\g}]\subset \g$ implies that $[\g,Y]=0$ for $Y \in M$, this implies that $Y$ acts on $W$ by scalars (Lemma \ref{Schur's Lemma}), on the other hand since $\Tr(Y|_W)=0$ then $Y=0$ and therefore $\g = \tilde{\g}$.
+\end{proof}
+`
