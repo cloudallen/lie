@@ -14,6 +14,7 @@ The universal enveloping algebra of a Lie algebra is one of the basic tools in r
 		\g \ar[u,"i"]\ar[r,swap,"\rho"]& \gl(V)
 	\end{tikzcd}		
 	\end{center}
+	\label{41UniversalDef}
 \end{defi}
 The idea of an universal object implies uniqueness, so before constructing the enveloping algebra explicitly, let's check uniqueness
 \begin{remark}
@@ -35,11 +36,75 @@ The idea to construct the universal enveloping algebra for any Lie Algebra comes
 	If $\pi : \mathcal{T}(\g) \rightarrow U(\g)$ is the canonical projection then we define $i$ to be the restriction of $\pi$ to $\g \subset \mathcal{T}(\g)$.
 	If $\rho: \g \rightarrow \gl(V)$ is any representation, then let $\varphi$ be the morphism from $\mathcal{T}(\g) \rightarrow \gl(V)$ extending $\rho$. Now since $\rho$ is a representation then for an element in $\mathcal{I}$ we get
 	$$ \varphi(X \otimes Y - Y \otimes X - [X,Y])= \rho(X)\rho(Y) - \rho(Y)\rho(X) - \rho([X,Y])=0,$$
-	therefore $I \subset \ker \varphi$ and $\varphi$ induces a morphism $\tilde{\rho}:U(\g)\rightarrow \gl(V)$ satisfying $ \tilde{\rho} \circ i = \rho$
+	therefore $I \subset \ker \varphi$ and $\varphi$ induces a morphism $\tilde{\rho}:U(\g)\rightarrow \gl(V)$ satisfying $ \tilde{\rho} \circ i = \rho$.
 	\begin{center}
 		\begin{tikzcd}
 			& U(\g) \arrow[tail,"\tilde{\rho}"]{dr}& \\
-			\g\arrow[bend right=60,"\rho"]{rr} \arrow[ur,"i"] \arrow[hook]{r}  & T(\g) \arrow[tail,"\pi"]{u} \arrow [tail,"\varphi"]{r} & \gl(V) 
+			\g\arrow[bend right=60,"\rho"]{rr} \arrow[ur,"i"] \arrow[hook]{r}  & T(\g) \arrow[tail,"\pi"]{u} \arrow [tail,"\varphi"]{r} & \gl(V)
 		\end{tikzcd}
 	\end{center}
-\end{proof}
+\end{proof}\\
+Considering this construction, the relevance of the enveloping algebra to representation theory, since all representations of $\g$ are extended to a representation of $U(\g)$, meaning that to study $\g$-modules is the same as studying $U(\g)$-modules\\
+\newpage
+\textbf{Poincaré Birkhoff Witt Theorem}\\
+We now focus on describing the Universal Lie Algebra since we have little information about its structure, one important aspect for algebras in general are basis, so given a basis of $\g$ that's well ordered $\{X_i, i \in I\}$ by some order of elements in $I$ then one basis of $U(\g)$ is described by the PBW theorem:\\
+\begin{teo}
+	The set of monomials $$\{X_{i_1} \cdots X_{i_k} \ | \ n \in \mathbb{Z}_{\ge{0}} \text { and } i_j \le i_{j+1} \text{ for $j$ in } 1,\cdots,k-1\}$$ is a basis of $U(\g)$. In particular if we have finite dimensional basis $\{X_1,\cdots,X_m\}$ then the monomials:
+	$$ X_1^{m_1}X_2^{m_2}\cdots X_n^{m_n} \ \ \text{ with } m_i\ge0$$
+	forms a basis of $U(\g)$
+	\label{41PBWProof}
+\end{teo}
+\begin{proof}
+	To show that these ordered monomials form a basis of $U(\g)$ consider any monomial
+	$m=X_{i_1}\cdots X_{i_k}$, can be written as a linear combination of elements in the ordered set, but this can be trivially seen from the relation:
+	$$ M(X_iX_j)N = M(X_jX_i+[X_j,X_i])N$$
+	For any elements $M,N \in U(\g)$, so if any elements in $m$ which have $i_j>i_l$ we can swap them and add a single element, reducing the length of the monomial and, by induction, since monomials of length 1 are always ordered the result follows.\\
+	The biggest hurdle lies in proving linearly independence, one approach to this is filtering $U(\g)$ through the filtration in the tensor algebra and proving that the graded algebra is isomorphic to the symmetric algebra \cite{humphreys1}.\\
+	The approach we are gonna use is to construct an endomorphism $\sigma$ on the tensor algebra in a way that $\mathcal{I}$ is mapped to $0$ and $\sigma(m) = m$ if $m$ is an ordered monomial, showing that the span of ordered monomials doesn't intersect $I$ and therefore it's linearly independent in $\T/\mathcal{I}$ since it's independent in $\T$.\\
+	Fix $m=X_{i_1}\cdots X_{i_k}$ any monomial, if $m$ is ordered set $\sigma(m)=m$. Otherwise, it's possible to find an index $i_s$ such that $i_s > i_{s+1}$, setting the number of these as $d(m)$ and defining $\sigma$ inductively on $d(m)$ and on the length of the monomial.
+	$$ \sigma(m) = \sigma(X_{i_1}\cdots X_{i_{s+1}}X_{i_s}\cdots X_{i_k}) + \sigma(X_{i_1}\cdots [X_{i_s},X_{i_{s+1}}]\cdots X_{i_k}),$$	
+	where the right side is defined by induction.\\
+	Since we are defining $\sigma$ only in a basis of $T$ we  extend naturally to an endomorphism. Now to finish the proof, we rest to prove that the endomorphism is null in $\mathcal{I}$ and that it's well defined, that is, the above recursion does not depend on the choice of $s$.\\
+	To show that it's null on $\mathcal{I}$ pick a general element $x = M(X_iX_j - X_jX_i - [X_i,X_j])N \in \mathcal{I}$, if $i=j$ then $x=0$, mas se $i\not=j$ assume without loss of generality that $i>j$, then by the definition of $\sigma$, if well defined, we get:
+	$$\sigma(MX_jX_iN) = \sigma(MX_iX_jN) + \sigma(M[X_i,X_j]N) \Rightarrow \sigma(x)=0$$
+	To show that it's well defined we consider the two possible cases for more than one unordered pair on $m$.
+	\begin{enumerate}
+		\item $$ 
+		X_{i_1} \cdots X_{i_r}X_{i_{r+1}}\cdots X_{i_s}X_{i_{s+1}}\cdots X_{i_k},
+		$$
+		with $i_r>i_{r+1}$ and $i_s>i_{s+1}$, applying $\sigma$ for the index $s$ then $r$ and then first for the index $r$ and then $s$ we arrive at the same result, let $A=X_{i_1}\cdots X_{i_{r-1}}$, $B=X_{i_{r+2}}\cdots X_{i_{s-1}}$ and $C=X_{i_{s+2}}\cdots X_{i_k}$ and $X_{i_k}=X_k$ to simplify notation.
+		\begin{align*}
+		\sigma(AX_rX_{r+1}BX_sX_{s+1}C) &= \sigma(AX_{r+1}X_rBX_{s+1}X_sC) \\
+		&+\sigma(A[X_r,X_{r+1}]BX_{s+1}X_sC)\\
+		&+\sigma(AX_{r+1}X_rB[X_s,X_{s+1}]C)\\
+		&+\sigma(A[X_r,X_{r+1}]B[X_s,X_{s+1}]C).
+		\end{align*}
+		Therefore $\sigma$ does not depend on the choice between two indices and therefore is well defined in this case.
+		\item $$AX_rX_{r+1}X_{r+2}B,$$
+		with $i_r > i_{r+1}>i_{r+2}$, first calculating the permutation of $i_{r+1}$ and $i_r$ we find:
+		\begin{align*}
+		\sigma (AX_rX_{r+1}X_{r+2}B) &= \sigma(AX_{r+1}X_rX_{r+2}B) + \sigma(A[X_r,X_{r+1}]X_{r+2}B)\\~
+		&= \sigma(AX_{r+1}X_{r+2}X_rB) + \sigma(AX_{r+1}[X_r,X_{r+2}]B)+\sigma(A[X_{r},X_{r+1}]X_{r+2}B)\\
+		&= \sigma(AX_{r+2}X_{r+1}X_r) \\
+		&+ \sigma(A[X_{r+1},X_{r+2}]X_rB)\\
+		&+ \sigma (AX_{r+1}[X_r,X_{r+2}]B)\\
+		&+ \sigma(A[X_r,X_{r+1}]X_{r+2}B),
+		\end{align*}
+		where the terms to permute after the first step is uniquely determined. Similarly for the other permutation
+		\begin{align*}
+		\sigma(AX_rX_{r+1}X_{r+2}B) &= \sigma(AX_{r+2}X_{r+1}X_r) \\
+		&+ \sigma(A[X_{r+1},X_{r+2}]X_rB)\\
+		&+ \sigma(AX_{r+1}[X_r,X_{r+2}])\\
+		&+\sigma(A[X_r,X_{r+1}]X_{r+2}B).
+		\end{align*}
+		The difference between the two expressions, evaluated using the induction hypothesis on the length of monomials is given by:
+		$$\sigma(A([X_r,[X_{r+1},X_{r+2}]]+[X_{r+1},[X_{r+2},X_r]]+[X_{r+2},[X_r,X_{r+1}]])B),$$
+		which is $0$ by the Jacobi identity.\\
+		Finally it follows that the span of ordered monomials doesn't intersect $I$ and therefore they are linearly independent in $U(\g)\cong \mathcal{T}/\mathcal{I}$
+		\end{enumerate}
+\end{proof}\\
+We've seen that in the case $\g$ is semi-simple, with a cartan subalgebra $\h$ root system $\Phi$ we have $\g = \h \oplus \bigoplus_{\alpha \in \Phi} \g_\alpha$, but we can divide the elements of a root system into two subsets with respect to a basis $\Delta$, so from now on we define $\mathfrak{n}_+ = \bigoplus_{\alpha \in \Phi^{+}}\g_\alpha$ and $\mathfrak{n}_{-}=\bigoplus_{\alpha \in \Phi^{-}}\g_\alpha$ from which both are subalgebras by the property $[\g_\alpha,\g_\beta]\in \g_{\alpha+\beta}$, and therefore $\g = \mathfrak{n}_- \oplus \h \oplus \mathfrak{n}_+$ and as a consequence of the PBW theorem:
+\begin{corol}
+In the above conditions
+$$U(\g) = U(\mathfrak{n}_-)U(\h)U(\mathfrak{n}_+)$$	
+\end{corol}
