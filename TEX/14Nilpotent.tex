@@ -1,4 +1,4 @@
-\section{Nilpotent and Solvable Algebras}
+\section{Nilpotent and Solvable Lie Algebras}
 This first section of results focuses on results about finite dimensional nilpotent algebras first focusing on matrix algebras, the results here are self-contained and play an important role in representation theory.\\
 We first correlate nilpotent matrices to ad-nilpotent matrices, the following proposition is a pre requisite to all further proves in this section:
 \begin{prop}
@@ -29,9 +29,9 @@ If all elements of $\g$ are ad-nilpotent, then $\g$ is nilpotent.
 \begin{proof}
 The image of the adjoint representation satisfies the conditions of Theorem \ref{Engel's Lemma} in $\gl(\g)$, implying that there exists non-zero $X \in \g$ such that $[X,\g]=0$, therefore $\z(\g)\not=0$, now $\g/Z(\g)$ consists of ad-nilpotent and has smaller dimension than $L$, but if $\g/\z(\g)$ is nilpotent then $\g$ is also nilpotent, in fact if $\g/(\z(\g))$ is nilpotent then $\g^n \subset \z(\g)$ for some $n$, but that implies $\g^{n+1} \subset [\g,\z(\g)] = 0$.
 \end{proof}\\
-A similar result is valid for solvable Lie Algebras under other conditions, consider $\F$ to have characteristic $0$ and be algebraically closed, then the following is valid:
+A similar result is valid for solvable Lie algebras under other conditions, consider $\F$ to have characteristic $0$ and be algebraically closed, then the following is valid:
 \begin{teo}[Lie's Theorem]
-	Let $\g$ be a solvable Lie Algebra of $\gl(V)$, $V$ finite dimensional, then $V$ contains a vector $v$ and a linear $\lambda:\g \rightarrow \F$ such that $Xv = \lambda(X)v$ for all $X \in \g$.
+	Let $\g$ be a solvable Lie algebra of $\gl(V)$, $V$ finite dimensional, then $V$ contains a vector $v$ and a linear $\lambda:\g \rightarrow \F$ such that $Xv = \lambda(X)v$ for all $X \in \g$.
 	\label{Lie's Theorem}
 \end{teo}
 \begin{proof}

@@ -1,7 +1,7 @@
 \section{Weyl's Theorem}
 \subsection*{Modules}
-Before we start talking about the Theorem itself, we remind the notion of representations presented before and using the notation of modules we will talk about composing representations in the most natural way, and using those composition we are able to prove the Weyl's Theorem of irreducibility.\\
-We remind the three properties that define a module, $V$ is a vector space and $\g$ is a Lie Algebra, with $v,w \in V$ and $X,Y \in \g$, and an action from $\g$ to $V$ represented by concatenation.
+Before we start talking about the theorem itself, we remind the notion of representations presented before and using the notation of modules we will talk about composing representations in the most natural way, and using those composition we are able to prove the Weyl's theorem of complete reducibility.\\
+We remind the three properties that define a module, $V$ is a vector space and $\g$ is a Lie algebra, with $v,w \in V$ and $X,Y \in \g$, and an action from $\g$ to $V$ represented by concatenation.
 \begin{enumerate}[label=\Alph*.]
 	\item $X(v+w) = Xv+Xw$ 
 	\item $(X+Y)v = Xv + Yv$
@@ -73,7 +73,7 @@ A linear transformation $T$ between modules $V$ and $W$ is said to be a module m
 \end{defi}
 \subsection*{Initial Results on Representations}
 \begin{lema}
-	Let $\rho:\g\rightarrow \gl(V)$ be a representation of a semi-simple Lie Algebra $\g$, then $\rho(\g)\subset \gsl(V)$.
+	Let $\rho:\g\rightarrow \gl(V)$ be a representation of a semi-simple Lie algebra $\g$, then $\rho(\g)\subset \gsl(V)$.
 	\label{trace0lemma}
 \end{lema}
 \begin{proof}
@@ -99,14 +99,14 @@ One of the important properties of $c_\rho$ is that it commutes with $\rho(\g)$,
 Xc_\rho - c_\rho X &= \sum_{i=1}^n XX_iY_i - X_iY_iX = \sum_{i=1}^nXX_iY_i - X_iXY_i + X_iXY_i - X_iY_iX  \\
 &=  \sum_{i=1}^n [X,X_i]Y_i + X_i[X,Y_i] = \sum_{i,j=1}^n a_{ij}X_jY_i + \sum_{i,j=1}^n b_{ij}X_iY_j = 0
 \end{align*}
-In case of a representation that is not one-to-one, we can consider another Lie Algebra $\g'=\g/\ker \rho$ and a new representation $\rho': \g' \rightarrow \gl(V)$ that satisfies the given conditions, since $\rho(\g)=\rho(\g')$ then $c_\rho'$ still commutes with $\rho(\g)$.
+In case of a representation that is not one-to-one, we can consider another Lie algebra $\g'=\g/\ker \rho$ and a new representation $\rho': \g' \rightarrow \gl(V)$ that satisfies the given conditions, since $\rho(\g)=\rho(\g')$ then $c_\rho'$ still commutes with $\rho(\g)$.
 With this discussion we can summarize the properties of the Casimir element of a representation:
 \begin{prop}
-Given finite-dimensional semi-simple Lie Algebra $\g$, and a representation $\rho:\g\rightarrow \gl(V)$, then there exists an element $c_\rho \in \gl(V)$ that commutes with $\rho(\g)$ and has non-zero trace.Moreover, if $\rho$ is irreducible, then $c_\rho$ acts as a scalar(Schur's Lemma).
+Given finite-dimensional semi-simple Lie algebra $\g$, and a representation $\rho:\g\rightarrow \gl(V)$, then there exists an element $c_\rho \in \gl(V)$ that commutes with $\rho(\g)$ and has non-zero trace.Moreover, if $\rho$ is irreducible, then $c_\rho$ acts as a scalar(Schur's Lemma).
 \end{prop}
 \subsection*{Weyl's Theorem of Irreducibility}
 \begin{teo}
-	Let $V$ be a finite dimensional $\g$-mod, where $\g$ is a finite dimensional semi-simple Lie Algebra, then every proper sub-module $W\subset V$ admits a sub-module complement $W'$ such that $V=W\oplus W'$
+	Let $V$ be a finite dimensional $\g$-mod, where $\g$ is a finite dimensional semi-simple Lie algebra, then every proper sub-module $W\subset V$ admits a sub-module complement $W'$ such that $V=W\oplus W'$
 	\label{Weyl's Theorem}
 \end{teo}
 \begin{proof}

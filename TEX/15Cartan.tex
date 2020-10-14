@@ -18,7 +18,7 @@ Here we will consider a finite dimensional vector space $V$ over an algebraicall
 	Now $\ad S$ is the semi-simple part of $\ad X$, so it can be written as a polynomial in $\ad X$ without constant term by (Proposition `\ref{jordandecom}B.) and therefore $\ad Y$ as a polynomial in $S$ maps $B$ to $A$, proving that $Y$ is in $M$.\\
 	Now $\Tr(XY)=\displaystyle\sum_{j=0}^m a_jf(a_j)=0 \Rightarrow \displaystyle\sum_{j=0}^m f(a_j)^2 =0$ by applying $f$ to the equality which in turn, since we restricted ourselves to $\mathbb{Q}$, implies that $f(a_j)=0$ for all $j$ and therefore $f=0$. Since $f$ is arbitrary then $E^*=0$.
 \end{proof}	\\
-This Lemma, very technical and apparently not very useful is essential to one of the most important facts about Lie Algebras as means of characterization of semi-simple Lie Algebras, in fact:
+This Lemma, very technical and apparently not very useful is essential to one of the most important facts about Lie algebras as means of characterization of semi-simple Lie algebras, in fact:
 \begin{teo}[Cartan's Criterion]
 	Let $\g$ be a subalgebra of $\gl(V)$, $V$ finite dimensional over a field $\F$ with characteristic $0$. Suppose that $\Tr(XY)=0$ for all $X \in [\g,\g]$ and $Y \in \g$. Then $\g$ is solvable.
 	\label{Cartan's Criterion}
@@ -30,22 +30,22 @@ This Lemma, very technical and apparently not very useful is essential to one of
 \end{proof}\\
 This in turn allows us to classify algebras with respect to the trace form in the adjoint, in fact, let:
 \begin{corol}
-	Let $\g$ be any finite dimensional Lie Algebra over a field $\F$ algebraically closed with characteristic $0$, then if $\Tr(\ad(X) \ad(Y))=0$ for all $X \in [\g,\g]$ and $Y \in \g$. Then $\g$ is solvable.
+	Let $\g$ be any finite dimensional Lie algebra over a field $\F$ algebraically closed with characteristic $0$, then if $\Tr(\ad(X) \ad(Y))=0$ for all $X \in [\g,\g]$ and $Y \in \g$. Then $\g$ is solvable.
 	\label{Corollary}
 \end{corol}
 \begin{proof}
 	We prove that $\ad \g = \g/\ker \ad$ is solvable from the theorem above, since $\ker \ad = \z(g)$ is solvable then $\g$ is solvable.\\
 	It only remains to prove the following lemma: If $\h$ is a solvable ideal of $\g$ and $\g/\h$ is solvable, then $\g$ is solvable. To prove that, consider that $\h^{(n)} = 0$ for some $n$ and $(\g/\h)^{(m)} = [0]$ for some $m$, then $(\g^{(m)})^{(n)} \subset \h^{(n)} = 0$
 \end{proof}\\
-With this in mind, define the natural bilinear form in Finite Dimensional Lie Algebras, the Trace Form or Cartan-Killing form.
+With this in mind, define the natural bilinear form in Finite Dimensional Lie algebras, the Trace Form or Cartan-Killing form.
 \begin{defi}
-	Let $\g$ be any Lie Algebra. Define $\kappa(X,Y)= \Tr [\ad(X)\ad(Y)]$ in $\gl(\g)$ for $X$ and $Y$ in $\g$, then $\kappa$ is a symmetric bilinear form of $\g$, called the Killing form and is also invariant in the sense that $\kappa([X,Y],Z)=\kappa(X,[Y,Z])$.\\
+	Let $\g$ be any Lie algebra. Define $\kappa(X,Y)= \Tr [\ad(X)\ad(Y)]$ in $\gl(\g)$ for $X$ and $Y$ in $\g$, then $\kappa$ is a symmetric bilinear form of $\g$, called the Killing form and is also invariant in the sense that $\kappa([X,Y],Z)=\kappa(X,[Y,Z])$.\\
 	Its radical, called $\Rad \g = \{X \in \g | \kappa(X,Y)=0 \text{ for all } Y \in \g\}$ is an ideal of $\g$. 
 	\label{Killing Form}
 \end{defi}
-With this in mind we can make the first step to classify semi-simple finite dimensional Lie Algebras.
+With this in mind we can make the first step to classify semi-simple finite dimensional Lie algebras.
 \begin{teo}
-	Let $\g$ be a finite dimensional Lie Algebra over $\F$ algebraic closed and over a field of characteristic $0$. Then the following are equivalent:
+	Let $\g$ be a finite dimensional Lie algebra over $\F$ algebraic closed and over a field of characteristic $0$. Then the following are equivalent:
 	\begin{enumerate}
 		\item $\g$ is semi-simple.
 		\item $\g$ has no non-zero abelian ideals.

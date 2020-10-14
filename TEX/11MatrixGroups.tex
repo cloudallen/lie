@@ -1,16 +1,16 @@
 \section{Lie Algebras as Exponentials of Matrix Lie Groups}
-Lie theory is a huge field in modern mathematical research with a lot of results, so briefly presenting the motivation and reason to study Lie Algebras, limiting ourselves to a special subset of Lie Groups that are specially useful for applications, this approach is found in \cite{brian} and a more geometrical approach to the presentation of Lie Algebras with a focus on general Lie Groups can be found in \cite{kirillov} and a more direct and algebraic approach can be found in \cite{kac}.\\
-Lie Groups are sets with a manifold and a group structure, we will focus our attention on matrix Lie Groups and we will define them differently to simplify the extension to Lie Algebras.\\
-Given a field $\F=\mathbb{C}$ or $\mathbb{R}$, the general linear group denoted $GL(n;\F)$ is the group of $n\times n$ invertible matrices, a sequence of matrices $A_n$ is gonna converge to $A$ in that space if it converges entry wise $a^n_{ij} \rightarrow a^n$, possible because of the topological structure of the fields considered, this is known as the $\infty$-norm and it is equivalent to the euclidean one.
+Lie theory is a huge field in modern mathematical research with a lot of results, so briefly presenting the motivation and reason to study Lie algebras, limiting ourselves to a special subset of Lie group that are specially useful for applications, this approach is found in \cite{brian} and a more geometrical approach to the presentation of Lie algebras with a focus on general Lie groups can be found in \cite{kirillov} and a more direct and algebraic approach can be found in \cite{kac}.\\
+Lie groups are manifolds with a group structure, we will focus our attention on matrix Lie groups and we will define them differently to simplify the extension to Lie algebras.\\
+Given a field $\F=\mathbb{C}$ or $\mathbb{R}$, the general linear group denoted $GL(n;\F)$ is the group of $n\times n$ invertible matrices, a sequence of matrices $A_n$ is gonna converge to $A$ in that space if it converges entry wise $a^n_{ij} \rightarrow a^n$, possible because of the topological structure of the fields considered, this entry-wise consideration on convergence is valid for the euclidean norm with the matrices being seen as elements in $\F^2$
 \begin{defi}
-	A matrix Lie Group $G$ is a closed subgroup of $GL(n;\F)$, meaning that it is a group and any sequence of matrices in $A_m \in G$ that converges to a matrix $A \in GL(n;\F)$, then $A \in G$.
+	A matrix Lie group $G$ is a closed subgroup of $GL(n;\F)$, meaning that it is a group and any sequence of matrices in $A_m \in G$ that converges to a matrix $A \in GL(n;\F)$, then $A \in G$.
 	\label{MATRIXLIEGROUPDEF}
 \end{defi}
 \begin{ex}
-	$GL(n;\F)$ is a Matrix Lie Group since it is a group and the closure is trivial.
+	$GL(n;\F)$ is a matrix Lie group since it is a group and the closure is trivial.
 \end{ex}
 \begin{ex}
-Since the determinant is a continuous function, then the group $SL(n;\F)$ of matrices with determinant $1$ is a matrix Lie Group
+Since the determinant is a continuous function, then the group $SL(n;\F)$ of matrices with determinant $1$ is a matrix Lie group
 \end{ex}
 \begin{ex}A subgroup of $GL(2;\mathbb{C})$ that is not closed, given $a\in \mathbb{R}/\mathbb{Q}$ irrational then:
 		$$G=\left\{\left.\begin{pmatrix}
@@ -18,7 +18,7 @@ Since the determinant is a continuous function, then the group $SL(n;\F)$ of mat
 		0 & e^{ita}	\end{pmatrix} \right| t \in \mathbb{R}\right\}.$$
 		Since $-I$ is not in $G$ since $t$ has to be an odd multiple of $\pi$ in which case $ta$ cannot be an odd multiple of $\pi$ since $a$ is irrational, on the other hand we can take $t=(2n+1)\pi$ for carefully chosen integers to make $ta$ arbitrarily close to an odd multiple of $\pi$.\\
 \end{ex}
-	We will briefly remind some of the properties of matrix exponentials necessary to demonstrate properties of the Lie Algebra as the “logarithm” of a Lie Group in some sense.
+	We will briefly remind some of the properties of matrix exponentials necessary to demonstrate properties of the Lie algebra as the “logarithm” of a Lie group in some sense.
 \begin{ex}
 	ADD MORE EXAMPLES \label{11EXAMPLES}
 \end{ex}
@@ -74,15 +74,15 @@ Since the determinant is a continuous function, then the group $SL(n;\F)$ of mat
 		\end{align*}
 	\end{enumerate}
 \end{proof}\\
-Now we are ready to present and prove some properties of the Lie Algebra of a matrix Lie Group.
+Now we are ready to present and prove some properties of the Lie algebra of a matrix Lie group.
 \begin{defi}
-	Given a matrix Lie Group $G\subset M_{n\times n}(\F)$ then its Lie Algebra is the set $\g = \{X \in M_{n\times n}(\F)\ |\ e^{tX} \in G \text{ for all } t\in\mathbb{R}\}$.
+	Given a matrix Lie Group $G\subset M_{n\times n}(\F)$ then its Lie algebra is the set $\g = \{X \in M_{n\times n}(\F)\ |\ e^{tX} \in G \text{ for all } t\in\mathbb{R}\}$.
 	\label{LIEALGEBRAFROMMLG}
 \end{defi}
-Considering this set instead of the Lie Group itself is very useful as they have very nice algebraic properties and an underlying structure that is quite rich and unique.\\
+Considering this set instead of the Lie group itself is very useful as they have very nice algebraic properties and an underlying structure that is quite rich and unique.\\
 One of the nicest properties this set possesses is that it is a vector subspace of $M_{n\times n}$ and is closed under a special operator, in fact:
 \begin{prop}
-Given any two elements $X,Y$ in a Lie Algebra $\g$ of a Lie matrix group $G$, then:
+Given any two elements $X,Y$ in a Lie algebra $\g$ of a Lie matrix group $G$, then:
 \begin{enumerate}[label=(\alph*)]
 	\item $sX \in \g \text{ for all } s \in \mathbb{R}$
 	\item $X+Y \in \g$
@@ -94,7 +94,7 @@ Given any two elements $X,Y$ in a Lie Algebra $\g$ of a Lie matrix group $G$, th
 \begin{enumerate}[label=(\alph*)]
 	\item $e^{t(sX)}=e^{(ts)X} \in G$ for all $t$ since $ts \in \mathbb{R}$
 	\item We will use Lie's product formula(Proposition \ref{MatrixExponential}g):
-	$e^{t(X+Y)} = \lim_{m \rightarrow \infty}(e^{tX/m}e^{tY/m})^m$, since $G$ is a group then $(e^{tX/m}e^{tY/m})^m$ is in $G$ for all $m \in \mathbb{N}$ and since it converges therefore by definition its limit is in the Lie Matrix Group $G$, proving that $X+Y \in \g$
+	$e^{t(X+Y)} = \lim_{m \rightarrow \infty}(e^{tX/m}e^{tY/m})^m$, since $G$ is a group then $(e^{tX/m}e^{tY/m})^m$ is in $G$ for all $m \in \mathbb{N}$ and since it converges therefore by definition its limit is in the matrix Lie group $G$, proving that $X+Y \in \g$
 	\item As we proved that it is a vector subspace of $M_{n\times n}$, we use the topologically closed property using limits:\\
 	Since $e^{tX} \in G$ and $Y \in \g$ then $e^{e^{tX}Ye^{-tX}} = e^{tX}e^{Y}e^{-tX} \in G$ which implies that $e^{tX}Ye^{-tX} \in\g$ and therefore $$\frac{e^{tX}Ye^{-tX}-Y}{t} \in \g.$$ for all $t$, and then its limit as $t\rightarrow 0$ is as well, but 
 	$$\lim_{t\rightarrow 0}\frac{e^{tX}Ye^{-tX}-Y}{t} = \frac{d}{dt} \left.e^{tX}Ye^{-tX}\right|_{t=0} = [Xe^{tX}Ye^{-tX} + e^{tX}Y(-X)e^{-tX}]_{t=0} = XY-YX.$$

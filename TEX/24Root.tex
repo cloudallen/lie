@@ -1,6 +1,6 @@
 \section{Root Decomposition}
 \subsection*{Orthogonality}
-Let $\g$ be a finite-dimensional semi-simple Lie Algebra over $\F$ algebraically closed with characteristic $0$.\\
+Let $\g$ be a finite-dimensional semi-simple Lie algebra over $\F$ algebraically closed with characteristic $0$.\\
 Fixing $\h$ a maximal toral subalgebra of $\g$, if $\g_\alpha = \{X \in \g | [H,X]=\alpha(H)x\}$ \text{ for all } $H \in \h$ \text{ and } $\alpha \in \h^*\}$ we'll call the subset of $\h^*$ such that $\g_\alpha \not=0$, except $0$ as $\Phi$ and its elements roots. \\
 Since the killing form restricted to $\h$ is non-degenerate, then for every $\alpha \in \h^*$ we can find some $T_\alpha \in \h$ that represents it, meaning $\alpha(H)=\kappa(T_\alpha,H)$.\\
 Reminding ourselves of the property of orthogonality between roots, meaning that if $\alpha+\beta \not=0$ for elements in $\h^*$ then $\kappa(\g_\alpha,\g_\beta)=0$.\\
@@ -29,7 +29,7 @@ With this we can summarize the first properties of root decomposition:
 		\end{align*}
 		This in turn implies that $\h$ is orthogonal to $[X,Y]-\kappa(X,Y)T_\alpha$, forcing $[X,Y]=\kappa(X,Y)T_\alpha$ since $[X,Y] \in \g_0 = \h$ and $\kappa$ is non-degenerate in $\h$.
 		\item $(c)$ shows that $T_\alpha$ spans $[\g_\alpha,\g_{-\alpha}]$, provided it is not $0$, and this space can't be $0$ because otherwise $\kappa(\g_\alpha,\g_{-\alpha})=0$ and therefore $\kappa(\g_\alpha,\g_{-\alpha}=0)$
-		\item If $\alpha(T_\alpha)=0$ choose $X \in \g_\alpha$ and $Y_\alpha$ such that $\kappa(X,Y)=1$ (possible due to $(d)$), then the subspace $S$ spanned by ${X,T_\alpha,Y}$ satisfies $[X,Y]=T_\alpha$, $[X,T_\alpha]=0$ and $[Y,T_\alpha]=0$, therefore its a three dimensional solvable Lie Algebra, then $S \sim \ad S \subset \gl(\g)$. Then $\ad[S,S]$ is nilpotent and therefore $\ad T_\alpha$ is both semi-simple and nilpotent, implying that $\ad(T_\alpha)=0 \Rightarrow T_\alpha=0$, absurd. 
+		\item If $\alpha(T_\alpha)=0$ choose $X \in \g_\alpha$ and $Y_\alpha$ such that $\kappa(X,Y)=1$ (possible due to $(d)$), then the subspace $S$ spanned by ${X,T_\alpha,Y}$ satisfies $[X,Y]=T_\alpha$, $[X,T_\alpha]=0$ and $[Y,T_\alpha]=0$, therefore its a three dimensional solvable Lie algebra, then $S \sim \ad S \subset \gl(\g)$. Then $\ad[S,S]$ is nilpotent and therefore $\ad T_\alpha$ is both semi-simple and nilpotent, implying that $\ad(T_\alpha)=0 \Rightarrow T_\alpha=0$, absurd. 
 		\item Let $H_\alpha = \frac{2T_\alpha}{\kappa(T_\alpha,T_\alpha)}$, then find $Y_\alpha \in \g_{-\alpha}$ such that $\kappa(X,Y) = \frac{2}{\kappa(T_\alpha,T_\alpha)}$ then $[X_\alpha,Y_\alpha] = \kappa(X,Y)T_\alpha = H_\alpha$.
 		Now $[H_\alpha,X_\alpha] = \alpha(H_\alpha)X_\alpha = \frac{2\alpha(T_\alpha)}{\kappa(T_\alpha,T_\alpha)}X_\alpha = 2X_\alpha $, and similarly for $[H,Y_\alpha]=-2Y_\alpha$.
 		\item Remember that $T_{-\alpha}$ is defined as the element that satisfies $\kappa(T_{-\alpha},H)=-\alpha(H)$ for any $H \i \h$, but $\kappa(-T_\alpha,H)=-\kappa(T_\alpha,H)=-\alpha(H)$, therefore $T_{\alpha}=-T_{-\alpha}$ and it follows that $H_{\alpha}=-H_{-\alpha}$

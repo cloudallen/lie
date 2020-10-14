@@ -30,6 +30,7 @@
 \newcommand{\ad}{\text{ad}}
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\Aut}{\text{Aut }}
+\newcommand{\n}{\mathfrak{n}}
 \newcommand{\B}{\mathcal{B}}
 \newcommand{\U}{\mathcal{U}}
 \newcommand{\z}{\mathfrak{z}}	
@@ -56,7 +57,7 @@
  \tableofcontents
 %%%%%%%%%%%%%%%%%
 \chapter*{Introduction}
-This project serves as an introduction to all the main basic results present in Lie Algebras with an emphasis on representation theory as a gateway to further development of the field, was initially started for the scientific initiation and masters project (PICME) whose purpose is to direct people to mathematics as an introduction to research and logical reasoning.
+This project serves as an introduction to all the main basic results present in Lie algebras with an emphasis on representation theory as a gateway to further development of the field, was initially started for the scientific initiation and masters project (PICME) whose purpose is to direct people to mathematics as an introduction to research and logical reasoning.
 \chapter{Lie Algebras: Basics}
 \input{11MatrixGroups}
 \input{12GeneralAlgebra}
@@ -65,7 +66,7 @@ This project serves as an introduction to all the main basic results present in 
 \input{15Cartan}
 \input{16Weyl}
 \chapter{Root Decomposition}
-This chapter presents the main results on the study of semi-simple Lie Algebras from an algebraic perspective, the same approach can be found in \cite{humphreys1}.
+This chapter presents the main results on the study of semi-simple Lie algebras from an algebraic perspective, the same approach can be found in \cite{humphreys1}.
 \input{21AbsJordan}
 \input{22Toral}
 \input{23sl2}
@@ -74,11 +75,11 @@ This chapter presents the main results on the study of semi-simple Lie Algebras 
 \input{31Axiom}
 \input{32Weyl}
 \input{33Weight}
-\chapter{Universal Lie Algebras and Conjugation}
+\chapter{Universal Enveloping Algebras and Representations}
 \input{41Universal}
-\section{Poincaré-Birkhoff-Witt Theorem}
+\input{42Representation}
 \chapter{Category $\bggO$}
-\section{Axiomatic and Initial Properties}
+\input{51Axiomatic}
 \section{Verma Modules}
 \section{Formal Characters}
 \section{Harish-Chandra Theorem}
@@ -86,10 +87,11 @@ This chapter presents the main results on the study of semi-simple Lie Algebras 
 \begin{enumerate}
 	\item Proof of the Geometric Lemma \ref{32anyrootisbasic}
 	\item More Examples \ref{11EXAMPLES} \ref{MOREEXAMPLES} 
-	\item Counter-example to Lie Theorem in prime characteristic
+	\item Counter-example to Lie Theorem in prime characteristic \ref{Lie's Theorem}
+	\item Add Proof to PBW theorem \ref{41PBWProof}
 	\item Discussions and referencing.
 	(\cite{jacobson}\cite{humphreys2}\cite{sanmartin})
 \end{enumerate}
-\bibliographystyle{alpha}
+\bibliographystyle{plain}
 \bibliography{bibliography}
 \end{document}
